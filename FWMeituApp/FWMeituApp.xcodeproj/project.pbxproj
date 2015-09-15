@@ -15,6 +15,19 @@
 		D71E6F191BA88A2000BCC79C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D71E6F181BA88A2000BCC79C /* Images.xcassets */; };
 		D71E6F1C1BA88A2000BCC79C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D71E6F1A1BA88A2000BCC79C /* LaunchScreen.xib */; };
 		D71E6F281BA88A2000BCC79C /* FWMeituAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D71E6F271BA88A2000BCC79C /* FWMeituAppTests.m */; };
+		D71E6F3C1BA88BCD00BCC79C /* AppIcon29x29.png in Resources */ = {isa = PBXBuildFile; fileRef = D71E6F331BA88BCD00BCC79C /* AppIcon29x29.png */; };
+		D71E6F3D1BA88BCD00BCC79C /* AppIcon29x29@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D71E6F341BA88BCD00BCC79C /* AppIcon29x29@2x.png */; };
+		D71E6F3E1BA88BCD00BCC79C /* AppIcon29x29@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D71E6F351BA88BCD00BCC79C /* AppIcon29x29@3x.png */; };
+		D71E6F3F1BA88BCD00BCC79C /* AppIcon40x40@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D71E6F361BA88BCD00BCC79C /* AppIcon40x40@2x.png */; };
+		D71E6F401BA88BCD00BCC79C /* AppIcon40x40@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D71E6F371BA88BCD00BCC79C /* AppIcon40x40@3x.png */; };
+		D71E6F411BA88BCD00BCC79C /* AppIcon57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = D71E6F381BA88BCD00BCC79C /* AppIcon57x57.png */; };
+		D71E6F421BA88BCD00BCC79C /* AppIcon57x57@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D71E6F391BA88BCD00BCC79C /* AppIcon57x57@2x.png */; };
+		D71E6F431BA88BCD00BCC79C /* AppIcon60x60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D71E6F3A1BA88BCD00BCC79C /* AppIcon60x60@2x.png */; };
+		D71E6F441BA88BCD00BCC79C /* AppIcon60x60@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D71E6F3B1BA88BCD00BCC79C /* AppIcon60x60@3x.png */; };
+		D71E6F4A1BA88DD400BCC79C /* LaunchImage-700-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D71E6F461BA88DD400BCC79C /* LaunchImage-700-568h@2x.png */; };
+		D71E6F4B1BA88DD400BCC79C /* LaunchImage-700@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D71E6F471BA88DD400BCC79C /* LaunchImage-700@2x.png */; };
+		D71E6F4C1BA88DD400BCC79C /* LaunchImage-800-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D71E6F481BA88DD400BCC79C /* LaunchImage-800-667h@2x.png */; };
+		D71E6F4D1BA88DD400BCC79C /* LaunchImage-800-Portrait-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D71E6F491BA88DD400BCC79C /* LaunchImage-800-Portrait-736h@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +55,19 @@
 		D71E6F211BA88A2000BCC79C /* FWMeituAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FWMeituAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D71E6F261BA88A2000BCC79C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D71E6F271BA88A2000BCC79C /* FWMeituAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FWMeituAppTests.m; sourceTree = "<group>"; };
+		D71E6F331BA88BCD00BCC79C /* AppIcon29x29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AppIcon29x29.png; path = Images/AppIcon29x29.png; sourceTree = "<group>"; };
+		D71E6F341BA88BCD00BCC79C /* AppIcon29x29@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AppIcon29x29@2x.png"; path = "Images/AppIcon29x29@2x.png"; sourceTree = "<group>"; };
+		D71E6F351BA88BCD00BCC79C /* AppIcon29x29@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AppIcon29x29@3x.png"; path = "Images/AppIcon29x29@3x.png"; sourceTree = "<group>"; };
+		D71E6F361BA88BCD00BCC79C /* AppIcon40x40@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AppIcon40x40@2x.png"; path = "Images/AppIcon40x40@2x.png"; sourceTree = "<group>"; };
+		D71E6F371BA88BCD00BCC79C /* AppIcon40x40@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AppIcon40x40@3x.png"; path = "Images/AppIcon40x40@3x.png"; sourceTree = "<group>"; };
+		D71E6F381BA88BCD00BCC79C /* AppIcon57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = AppIcon57x57.png; path = Images/AppIcon57x57.png; sourceTree = "<group>"; };
+		D71E6F391BA88BCD00BCC79C /* AppIcon57x57@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AppIcon57x57@2x.png"; path = "Images/AppIcon57x57@2x.png"; sourceTree = "<group>"; };
+		D71E6F3A1BA88BCD00BCC79C /* AppIcon60x60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AppIcon60x60@2x.png"; path = "Images/AppIcon60x60@2x.png"; sourceTree = "<group>"; };
+		D71E6F3B1BA88BCD00BCC79C /* AppIcon60x60@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "AppIcon60x60@3x.png"; path = "Images/AppIcon60x60@3x.png"; sourceTree = "<group>"; };
+		D71E6F461BA88DD400BCC79C /* LaunchImage-700-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "LaunchImage-700-568h@2x.png"; path = "Images/LaunchImage-700-568h@2x.png"; sourceTree = "<group>"; };
+		D71E6F471BA88DD400BCC79C /* LaunchImage-700@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "LaunchImage-700@2x.png"; path = "Images/LaunchImage-700@2x.png"; sourceTree = "<group>"; };
+		D71E6F481BA88DD400BCC79C /* LaunchImage-800-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "LaunchImage-800-667h@2x.png"; path = "Images/LaunchImage-800-667h@2x.png"; sourceTree = "<group>"; };
+		D71E6F491BA88DD400BCC79C /* LaunchImage-800-Portrait-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "LaunchImage-800-Portrait-736h@3x.png"; path = "Images/LaunchImage-800-Portrait-736h@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +109,7 @@
 		D71E6F071BA88A2000BCC79C /* FWMeituApp */ = {
 			isa = PBXGroup;
 			children = (
+				D71E6F311BA88BAB00BCC79C /* Images */,
 				D71E6F0C1BA88A2000BCC79C /* AppDelegate.h */,
 				D71E6F0D1BA88A2000BCC79C /* AppDelegate.m */,
 				D71E6F121BA88A2000BCC79C /* ViewController.h */,
@@ -120,6 +147,42 @@
 				D71E6F261BA88A2000BCC79C /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D71E6F311BA88BAB00BCC79C /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				D71E6F451BA88D3F00BCC79C /* Launch */,
+				D71E6F321BA88BBE00BCC79C /* Appicons */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		D71E6F321BA88BBE00BCC79C /* Appicons */ = {
+			isa = PBXGroup;
+			children = (
+				D71E6F331BA88BCD00BCC79C /* AppIcon29x29.png */,
+				D71E6F341BA88BCD00BCC79C /* AppIcon29x29@2x.png */,
+				D71E6F351BA88BCD00BCC79C /* AppIcon29x29@3x.png */,
+				D71E6F361BA88BCD00BCC79C /* AppIcon40x40@2x.png */,
+				D71E6F371BA88BCD00BCC79C /* AppIcon40x40@3x.png */,
+				D71E6F381BA88BCD00BCC79C /* AppIcon57x57.png */,
+				D71E6F391BA88BCD00BCC79C /* AppIcon57x57@2x.png */,
+				D71E6F3A1BA88BCD00BCC79C /* AppIcon60x60@2x.png */,
+				D71E6F3B1BA88BCD00BCC79C /* AppIcon60x60@3x.png */,
+			);
+			name = Appicons;
+			sourceTree = "<group>";
+		};
+		D71E6F451BA88D3F00BCC79C /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				D71E6F461BA88DD400BCC79C /* LaunchImage-700-568h@2x.png */,
+				D71E6F471BA88DD400BCC79C /* LaunchImage-700@2x.png */,
+				D71E6F481BA88DD400BCC79C /* LaunchImage-800-667h@2x.png */,
+				D71E6F491BA88DD400BCC79C /* LaunchImage-800-Portrait-736h@3x.png */,
+			);
+			name = Launch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,8 +266,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				D71E6F171BA88A2000BCC79C /* Main.storyboard in Resources */,
+				D71E6F411BA88BCD00BCC79C /* AppIcon57x57.png in Resources */,
+				D71E6F3E1BA88BCD00BCC79C /* AppIcon29x29@3x.png in Resources */,
+				D71E6F3F1BA88BCD00BCC79C /* AppIcon40x40@2x.png in Resources */,
+				D71E6F431BA88BCD00BCC79C /* AppIcon60x60@2x.png in Resources */,
+				D71E6F4B1BA88DD400BCC79C /* LaunchImage-700@2x.png in Resources */,
+				D71E6F401BA88BCD00BCC79C /* AppIcon40x40@3x.png in Resources */,
+				D71E6F3D1BA88BCD00BCC79C /* AppIcon29x29@2x.png in Resources */,
+				D71E6F441BA88BCD00BCC79C /* AppIcon60x60@3x.png in Resources */,
+				D71E6F421BA88BCD00BCC79C /* AppIcon57x57@2x.png in Resources */,
+				D71E6F4C1BA88DD400BCC79C /* LaunchImage-800-667h@2x.png in Resources */,
 				D71E6F1C1BA88A2000BCC79C /* LaunchScreen.xib in Resources */,
+				D71E6F4D1BA88DD400BCC79C /* LaunchImage-800-Portrait-736h@3x.png in Resources */,
+				D71E6F4A1BA88DD400BCC79C /* LaunchImage-700-568h@2x.png in Resources */,
 				D71E6F191BA88A2000BCC79C /* Images.xcassets in Resources */,
+				D71E6F3C1BA88BCD00BCC79C /* AppIcon29x29.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
