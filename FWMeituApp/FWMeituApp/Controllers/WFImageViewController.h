@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  WFImageViewController.h
 //  FWMeituApp
 //
 //  Created by ForrestWoo on 15-9-16.
@@ -8,11 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-#import "IndexView.h"
-#import "WFImageViewController.h"
+@interface WFImageViewController : UIViewController
 
-@interface ViewController : UIViewController
-
+@property (nonatomic, strong) UIImagePickerController *pick;
 
 @end
-

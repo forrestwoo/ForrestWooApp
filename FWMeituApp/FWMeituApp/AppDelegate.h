@@ -6,6 +6,10 @@
 //  Copyright (c) 2015年 ForrestWoo co,.ltd. All rights reserved.
 //
 
+#define WIDTH [UIScreen mainScreen].bounds.size.width
+#define HEIGHT [UIScreen mainScreen].bounds.size.height
+
+
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
