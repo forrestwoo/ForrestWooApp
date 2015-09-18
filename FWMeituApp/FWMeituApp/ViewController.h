@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-#import "IndexView.h"
-#import "WFImageViewController.h"
+@interface ViewController : UIViewController <UIScrollViewDelegate>
+{
+    UIButton *btnArrow;
+}
 
-@interface ViewController : UIViewController
-
+@property (nonatomic ,strong) UIScrollView *scrolleView;
+@property (nonatomic, strong) UIPageControl *pageControl;
 
 @end
 
