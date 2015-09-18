@@ -12,4 +12,9 @@
 #define WIDTH [UIScreen mainScreen].bounds.size.width
 #define HEIGHT [UIScreen mainScreen].bounds.size.height
 
+//topview
+#define TOPVIEW_WIDTH 51
+#define TOPVIEW_HEIGHT 61
+#define HEART_WIDTH 35
+#define HEART_HEIGHT 35
 #endif

@@ -55,5 +55,9 @@
 	</array>
 	<key>CFBundleDisplayName</key>
 	<string>美图</string>
+	<key>UIStatusBarHidden</key>
+	<true/>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>

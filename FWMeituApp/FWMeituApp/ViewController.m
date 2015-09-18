@@ -9,8 +9,11 @@
 #import "ViewController.h"
 #import "ConstantsConfig.h"
 #import "FWFucView.h"
+#import "FWTopView.h"
 
 @interface ViewController ()
+
+@property (nonatomic, strong) FWTopView *topView;
 
 @end
 
@@ -37,7 +40,6 @@
     
     [self setupScrollView];
     
-    CGSize size = [UIImage imageNamed:@"bg_topview_topback_a.png"].size;
     
     //    NSLog(@"%f,%f",size.width,size.height);
     
@@ -59,7 +61,12 @@
     
     [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(hanlderAction:) userInfo:nil repeats:YES];
     
+    self.topView = [[FWTopView alloc] initWithFrame:CGRectMake(317,  0, TOPVIEW_WIDTH, TOPVIEW_HEIGHT)];
+    [self.view addSubview:self.topView];
+    [self.topView initView:@"20"];
 }
+
+
 //
 - (void)hanlderAction:(NSTimer *)timer
 {
@@ -128,10 +135,10 @@
                                       @"home_block_orange_a@2x.png", @"home_block_blue_a@2x.png", @"item_bg_purple_a@2x.png",
                                       @"home_block_pink_a@2x.png", @"home_block_red_a@2x.png",
                                       nil];
-//    UIImage *iii = [UIImage imageNamed:@"home_block_red_a@2x.png"];
-//    //    NSLog(@"%f,%f",iii.size.width,iii.size.height);
-//    UIImage *ii = [UIImage imageNamed:@"home_block_mask@2x.png"];
-//    //    NSLog(@"%f,%f",ii.size.width,ii.size.height);
+    UIImage *iii = [UIImage imageNamed:@"icon_colours_flag@2x.png"];
+        NSLog(@"%f,%f",iii.size.width,iii.size.height);
+    UIImage *ii = [UIImage imageNamed:@"icon_blur_heart@2x.png"];
+        NSLog(@"%f,%f",ii.size.width,ii.size.height);
 //    UIImage *i = [UIImage imageNamed:@"icon_home_beauty@2x.png"];
 //    //    NSLog(@"%f,%f",i.size.width,i.size.height);
     NSArray *textArr = [NSArray arrayWithObjects:@"美化图片", @"人像美容", @"拼图", @"万能相机", @"素材中心", @"美颜相机", @"美拍", @"更多功能", nil];
