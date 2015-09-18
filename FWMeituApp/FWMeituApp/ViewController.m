@@ -8,13 +8,13 @@
 
 #import "ViewController.h"
 #import "ConstantsConfig.h"
-#import "FWFucView.h"
 #import "FWTopView.h"
+#import "FWImagePickerTableViewController.h"
 
 @interface ViewController ()
 
 @property (nonatomic, strong) FWTopView *topView;
-
+@property (nonatomic, strong) FWImagePickerTableViewController *imagePicker;
 @end
 
 @implementation ViewController
@@ -64,6 +64,9 @@
     self.topView = [[FWTopView alloc] initWithFrame:CGRectMake(317,  0, TOPVIEW_WIDTH, TOPVIEW_HEIGHT)];
     [self.view addSubview:self.topView];
     [self.topView initView:@"20"];
+    
+    self.imagePicker = [[FWImagePickerTableViewController alloc] initWithStyle:UITableViewStylePlain];
+    
 }
 
 
@@ -152,27 +155,17 @@
         NSArray *arr = [NSArray arrayWithObjects: [imageViewBackImageArr objectAtIndex:i], [imageViewImageArr objectAtIndex:i], [textArr objectAtIndex:i], nil];
         [fv initView:arr];
         [self.scrolleView addSubview:fv];
+        fv.delegate = self;
     }
 }
 
-- (void)meihuaClicked:(id)sender
+
+
+- (void)functionView:(FWFucView *)fuctionView
 {
-    //    [self.navigationController pushViewController:self.imagepick animated:YES];
+    [self.navigationController pushViewController:self.imagePicker animated:YES];
+    NSLog(@"%f",self.imagePicker.view.frame.size.width);
 }
 
-- (void)meirongClicked:(id)sender
-{
-    
-}
-
-- (void)pintuClicked:(id)sender
-{
-    
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 @end

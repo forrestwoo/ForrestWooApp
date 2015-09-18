@@ -105,6 +105,8 @@
 		D71E6F4B1BA88DD400BCC79C /* LaunchImage-700@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D71E6F471BA88DD400BCC79C /* LaunchImage-700@2x.png */; };
 		D71E6F4C1BA88DD400BCC79C /* LaunchImage-800-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D71E6F481BA88DD400BCC79C /* LaunchImage-800-667h@2x.png */; };
 		D71E6F4D1BA88DD400BCC79C /* LaunchImage-800-Portrait-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D71E6F491BA88DD400BCC79C /* LaunchImage-800-Portrait-736h@3x.png */; };
+		D75DA7CF1BAC5E180025A77E /* FWImagePickerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D75DA7CD1BAC5E180025A77E /* FWImagePickerTableViewController.m */; };
+		D75DA7D01BAC5E180025A77E /* FWImagePickerTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D75DA7CE1BAC5E180025A77E /* FWImagePickerTableViewController.xib */; };
 		D7C438DA1BABE9C6005317BE /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C438D71BABE9C6005317BE /* close.png */; };
 		D7C438DB1BABE9C6005317BE /* icon_colours_flag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C438D81BABE9C6005317BE /* icon_colours_flag@2x.png */; };
 		D7C438DC1BABE9C6005317BE /* icon_colours_flag@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C438D91BABE9C6005317BE /* icon_colours_flag@3x.png */; };
@@ -229,6 +231,9 @@
 		D71E6F471BA88DD400BCC79C /* LaunchImage-700@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "LaunchImage-700@2x.png"; path = "Images/LaunchImage-700@2x.png"; sourceTree = "<group>"; };
 		D71E6F481BA88DD400BCC79C /* LaunchImage-800-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "LaunchImage-800-667h@2x.png"; path = "Images/LaunchImage-800-667h@2x.png"; sourceTree = "<group>"; };
 		D71E6F491BA88DD400BCC79C /* LaunchImage-800-Portrait-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "LaunchImage-800-Portrait-736h@3x.png"; path = "Images/LaunchImage-800-Portrait-736h@3x.png"; sourceTree = "<group>"; };
+		D75DA7CC1BAC5E180025A77E /* FWImagePickerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FWImagePickerTableViewController.h; path = Controllers/FWImagePickerTableViewController.h; sourceTree = "<group>"; };
+		D75DA7CD1BAC5E180025A77E /* FWImagePickerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FWImagePickerTableViewController.m; path = Controllers/FWImagePickerTableViewController.m; sourceTree = "<group>"; };
+		D75DA7CE1BAC5E180025A77E /* FWImagePickerTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FWImagePickerTableViewController.xib; path = Controllers/FWImagePickerTableViewController.xib; sourceTree = "<group>"; };
 		D7C438D71BABE9C6005317BE /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = close.png; path = Images/close.png; sourceTree = "<group>"; };
 		D7C438D81BABE9C6005317BE /* icon_colours_flag@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon_colours_flag@2x.png"; path = "Images/icon_colours_flag@2x.png"; sourceTree = "<group>"; };
 		D7C438D91BABE9C6005317BE /* icon_colours_flag@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon_colours_flag@3x.png"; path = "Images/icon_colours_flag@3x.png"; sourceTree = "<group>"; };
@@ -290,6 +295,9 @@
 		D717519F1BA9411A004E9291 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				D75DA7CC1BAC5E180025A77E /* FWImagePickerTableViewController.h */,
+				D75DA7CD1BAC5E180025A77E /* FWImagePickerTableViewController.m */,
+				D75DA7CE1BAC5E180025A77E /* FWImagePickerTableViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -605,6 +613,7 @@
 				D71E6F3E1BA88BCD00BCC79C /* AppIcon29x29@3x.png in Resources */,
 				D7C438DC1BABE9C6005317BE /* icon_colours_flag@3x.png in Resources */,
 				D71E6F3F1BA88BCD00BCC79C /* AppIcon40x40@2x.png in Resources */,
+				D75DA7D01BAC5E180025A77E /* FWImagePickerTableViewController.xib in Resources */,
 				D70EC2481BAAC8F000A1EC26 /* home_block_blue_a@3x.png in Resources */,
 				D70EC2551BAAC8F000A1EC26 /* icon_app_bqgc@2x.png in Resources */,
 				D70EC2901BAACFF400A1EC26 /* icon_home_star@2x.png in Resources */,
@@ -691,6 +700,7 @@
 				D71E6F111BA88A2000BCC79C /* FWMeituApp.xcdatamodeld in Sources */,
 				D70EC2651BAACA2800A1EC26 /* FWFucView.m in Sources */,
 				D71E6F141BA88A2000BCC79C /* ViewController.m in Sources */,
+				D75DA7CF1BAC5E180025A77E /* FWImagePickerTableViewController.m in Sources */,
 				D71E6F0B1BA88A2000BCC79C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

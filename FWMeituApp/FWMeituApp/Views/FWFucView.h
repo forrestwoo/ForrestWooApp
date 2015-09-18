@@ -8,10 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@class FWFucView;
+@protocol FWImageProcessFucDelegate <NSObject>
+
+- (void)functionView:(FWFucView *)fuctionView;
+
+@end
+
 @interface FWFucView : UIView
 
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UILabel *textView;
+@property (nonatomic, assign) id<FWImageProcessFucDelegate> delegate;
 
 - (void)initView:(NSArray *)arr;
 

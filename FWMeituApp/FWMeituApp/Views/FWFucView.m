@@ -28,7 +28,6 @@
         self.textView = [[UILabel alloc] initWithFrame:CGRectMake(1.5, 64, 100, 24)];
         self.textView.backgroundColor  = [UIColor clearColor];
         self.textView.textColor = [UIColor whiteColor];
-//        [self.textView setFont:[UIFont fontWithName:@"helveica-boldoblique" size:1]];
         self.textView.textAlignment = UITextAlignmentCenter;
         [self addSubview:self.imageView];
         [self addSubview:self.textView];
@@ -43,6 +42,13 @@
     self.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:(NSString *)[arr objectAtIndex:0]]];
     self.imageView.image = [UIImage imageNamed:(NSString *)[arr objectAtIndex:1]];
     self.textView.text = [arr objectAtIndex:2];
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    if ([self.delegate respondsToSelector:@selector(functionView:)]) {
+        [self.delegate performSelector:@selector(functionView:) withObject:self];
+    }
 }
 
 @end

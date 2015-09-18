@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController <UIScrollViewDelegate>
+#import "FWFucView.h"
+
+@interface ViewController : UIViewController <UIScrollViewDelegate, FWImageProcessFucDelegate>
 {
     UIButton *btnArrow;
 }
