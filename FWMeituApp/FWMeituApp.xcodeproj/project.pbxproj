@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D7081B771BAD4CC5002EE475 /* FWBeautyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7081B751BAD4CC5002EE475 /* FWBeautyViewController.m */; };
+		D7081B781BAD4CC5002EE475 /* FWBeautyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7081B761BAD4CC5002EE475 /* FWBeautyViewController.xib */; };
 		D70EC2441BAAC8F000A1EC26 /* bg_topview_topback_a.png in Resources */ = {isa = PBXBuildFile; fileRef = D70EC2251BAAC8F000A1EC26 /* bg_topview_topback_a.png */; };
 		D70EC2451BAAC8F000A1EC26 /* btn_home_setting_a@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D70EC2261BAAC8F000A1EC26 /* btn_home_setting_a@2x.png */; };
 		D70EC2461BAAC8F000A1EC26 /* btn_home_setting_a@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D70EC2271BAAC8F000A1EC26 /* btn_home_setting_a@3x.png */; };
@@ -88,7 +90,6 @@
 		D71E6F0E1BA88A2000BCC79C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D71E6F0D1BA88A2000BCC79C /* AppDelegate.m */; };
 		D71E6F111BA88A2000BCC79C /* FWMeituApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D71E6F0F1BA88A2000BCC79C /* FWMeituApp.xcdatamodeld */; };
 		D71E6F141BA88A2000BCC79C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D71E6F131BA88A2000BCC79C /* ViewController.m */; };
-		D71E6F171BA88A2000BCC79C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D71E6F151BA88A2000BCC79C /* Main.storyboard */; };
 		D71E6F191BA88A2000BCC79C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D71E6F181BA88A2000BCC79C /* Images.xcassets */; };
 		D71E6F1C1BA88A2000BCC79C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D71E6F1A1BA88A2000BCC79C /* LaunchScreen.xib */; };
 		D71E6F281BA88A2000BCC79C /* FWMeituAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D71E6F271BA88A2000BCC79C /* FWMeituAppTests.m */; };
@@ -105,8 +106,6 @@
 		D71E6F4B1BA88DD400BCC79C /* LaunchImage-700@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D71E6F471BA88DD400BCC79C /* LaunchImage-700@2x.png */; };
 		D71E6F4C1BA88DD400BCC79C /* LaunchImage-800-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D71E6F481BA88DD400BCC79C /* LaunchImage-800-667h@2x.png */; };
 		D71E6F4D1BA88DD400BCC79C /* LaunchImage-800-Portrait-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D71E6F491BA88DD400BCC79C /* LaunchImage-800-Portrait-736h@3x.png */; };
-		D75DA7CF1BAC5E180025A77E /* FWImagePickerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D75DA7CD1BAC5E180025A77E /* FWImagePickerTableViewController.m */; };
-		D75DA7D01BAC5E180025A77E /* FWImagePickerTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D75DA7CE1BAC5E180025A77E /* FWImagePickerTableViewController.xib */; };
 		D7C438DA1BABE9C6005317BE /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C438D71BABE9C6005317BE /* close.png */; };
 		D7C438DB1BABE9C6005317BE /* icon_colours_flag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C438D81BABE9C6005317BE /* icon_colours_flag@2x.png */; };
 		D7C438DC1BABE9C6005317BE /* icon_colours_flag@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D7C438D91BABE9C6005317BE /* icon_colours_flag@3x.png */; };
@@ -125,6 +124,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D7081B741BAD4CC5002EE475 /* FWBeautyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FWBeautyViewController.h; path = Controllers/FWBeautyViewController.h; sourceTree = "<group>"; };
+		D7081B751BAD4CC5002EE475 /* FWBeautyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FWBeautyViewController.m; path = Controllers/FWBeautyViewController.m; sourceTree = "<group>"; };
+		D7081B761BAD4CC5002EE475 /* FWBeautyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FWBeautyViewController.xib; path = Controllers/FWBeautyViewController.xib; sourceTree = "<group>"; };
 		D70EC2251BAAC8F000A1EC26 /* bg_topview_topback_a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg_topview_topback_a.png; path = Images/bg_topview_topback_a.png; sourceTree = "<group>"; };
 		D70EC2261BAAC8F000A1EC26 /* btn_home_setting_a@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn_home_setting_a@2x.png"; path = "Images/btn_home_setting_a@2x.png"; sourceTree = "<group>"; };
 		D70EC2271BAAC8F000A1EC26 /* btn_home_setting_a@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn_home_setting_a@3x.png"; path = "Images/btn_home_setting_a@3x.png"; sourceTree = "<group>"; };
@@ -212,7 +214,6 @@
 		D71E6F101BA88A2000BCC79C /* FWMeituApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FWMeituApp.xcdatamodel; sourceTree = "<group>"; };
 		D71E6F121BA88A2000BCC79C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		D71E6F131BA88A2000BCC79C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		D71E6F161BA88A2000BCC79C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D71E6F181BA88A2000BCC79C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D71E6F1B1BA88A2000BCC79C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		D71E6F211BA88A2000BCC79C /* FWMeituAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FWMeituAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -231,9 +232,6 @@
 		D71E6F471BA88DD400BCC79C /* LaunchImage-700@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "LaunchImage-700@2x.png"; path = "Images/LaunchImage-700@2x.png"; sourceTree = "<group>"; };
 		D71E6F481BA88DD400BCC79C /* LaunchImage-800-667h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "LaunchImage-800-667h@2x.png"; path = "Images/LaunchImage-800-667h@2x.png"; sourceTree = "<group>"; };
 		D71E6F491BA88DD400BCC79C /* LaunchImage-800-Portrait-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "LaunchImage-800-Portrait-736h@3x.png"; path = "Images/LaunchImage-800-Portrait-736h@3x.png"; sourceTree = "<group>"; };
-		D75DA7CC1BAC5E180025A77E /* FWImagePickerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FWImagePickerTableViewController.h; path = Controllers/FWImagePickerTableViewController.h; sourceTree = "<group>"; };
-		D75DA7CD1BAC5E180025A77E /* FWImagePickerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FWImagePickerTableViewController.m; path = Controllers/FWImagePickerTableViewController.m; sourceTree = "<group>"; };
-		D75DA7CE1BAC5E180025A77E /* FWImagePickerTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FWImagePickerTableViewController.xib; path = Controllers/FWImagePickerTableViewController.xib; sourceTree = "<group>"; };
 		D7C438D71BABE9C6005317BE /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = close.png; path = Images/close.png; sourceTree = "<group>"; };
 		D7C438D81BABE9C6005317BE /* icon_colours_flag@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon_colours_flag@2x.png"; path = "Images/icon_colours_flag@2x.png"; sourceTree = "<group>"; };
 		D7C438D91BABE9C6005317BE /* icon_colours_flag@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon_colours_flag@3x.png"; path = "Images/icon_colours_flag@3x.png"; sourceTree = "<group>"; };
@@ -295,9 +293,9 @@
 		D717519F1BA9411A004E9291 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D75DA7CC1BAC5E180025A77E /* FWImagePickerTableViewController.h */,
-				D75DA7CD1BAC5E180025A77E /* FWImagePickerTableViewController.m */,
-				D75DA7CE1BAC5E180025A77E /* FWImagePickerTableViewController.xib */,
+				D7081B741BAD4CC5002EE475 /* FWBeautyViewController.h */,
+				D7081B751BAD4CC5002EE475 /* FWBeautyViewController.m */,
+				D7081B761BAD4CC5002EE475 /* FWBeautyViewController.xib */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -429,7 +427,6 @@
 				D71E6F0D1BA88A2000BCC79C /* AppDelegate.m */,
 				D71E6F121BA88A2000BCC79C /* ViewController.h */,
 				D71E6F131BA88A2000BCC79C /* ViewController.m */,
-				D71E6F151BA88A2000BCC79C /* Main.storyboard */,
 				D71E6F181BA88A2000BCC79C /* Images.xcassets */,
 				D71E6F1A1BA88A2000BCC79C /* LaunchScreen.xib */,
 				D71E6F0F1BA88A2000BCC79C /* FWMeituApp.xcdatamodeld */,
@@ -584,7 +581,6 @@
 				D71751C21BA9480A004E9291 /* bg_default_view_mt-667.jpg in Resources */,
 				D70EC25B1BAAC8F000A1EC26 /* icon_app_mt9cut@2x.png in Resources */,
 				D71751C51BA9480A004E9291 /* bg_home_defaultRandom@3x.jpg in Resources */,
-				D71E6F171BA88A2000BCC79C /* Main.storyboard in Resources */,
 				D70EC2501BAAC8F000A1EC26 /* home_block_orange_a@3x.png in Resources */,
 				D70EC24D1BAAC8F000A1EC26 /* home_block_mask@2x.png in Resources */,
 				D70EC2541BAAC8F000A1EC26 /* home_block_red_a@3x.png in Resources */,
@@ -592,6 +588,7 @@
 				D7C438DA1BABE9C6005317BE /* close.png in Resources */,
 				D71751CE1BA9480A004E9291 /* left_arrow@2x.png in Resources */,
 				D71751C71BA9480A004E9291 /* bg_home@3x.jpg in Resources */,
+				D7081B781BAD4CC5002EE475 /* FWBeautyViewController.xib in Resources */,
 				D70EC25C1BAAC8F000A1EC26 /* icon_app_mt9cut@3x.png in Resources */,
 				D7FC52E61BAB26F700275BD4 /* item_bg_purple_a@2x.png in Resources */,
 				D71751CB1BA9480A004E9291 /* icon_share_camera@3x.png in Resources */,
@@ -613,7 +610,6 @@
 				D71E6F3E1BA88BCD00BCC79C /* AppIcon29x29@3x.png in Resources */,
 				D7C438DC1BABE9C6005317BE /* icon_colours_flag@3x.png in Resources */,
 				D71E6F3F1BA88BCD00BCC79C /* AppIcon40x40@2x.png in Resources */,
-				D75DA7D01BAC5E180025A77E /* FWImagePickerTableViewController.xib in Resources */,
 				D70EC2481BAAC8F000A1EC26 /* home_block_blue_a@3x.png in Resources */,
 				D70EC2551BAAC8F000A1EC26 /* icon_app_bqgc@2x.png in Resources */,
 				D70EC2901BAACFF400A1EC26 /* icon_home_star@2x.png in Resources */,
@@ -696,11 +692,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				D71E6F0E1BA88A2000BCC79C /* AppDelegate.m in Sources */,
+				D7081B771BAD4CC5002EE475 /* FWBeautyViewController.m in Sources */,
 				D7C438DF1BABECAA005317BE /* FWTopView.m in Sources */,
 				D71E6F111BA88A2000BCC79C /* FWMeituApp.xcdatamodeld in Sources */,
 				D70EC2651BAACA2800A1EC26 /* FWFucView.m in Sources */,
 				D71E6F141BA88A2000BCC79C /* ViewController.m in Sources */,
-				D75DA7CF1BAC5E180025A77E /* FWImagePickerTableViewController.m in Sources */,
 				D71E6F0B1BA88A2000BCC79C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -724,14 +720,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		D71E6F151BA88A2000BCC79C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D71E6F161BA88A2000BCC79C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		D71E6F1A1BA88A2000BCC79C /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (

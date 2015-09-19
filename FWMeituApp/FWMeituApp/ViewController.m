@@ -9,12 +9,9 @@
 #import "ViewController.h"
 #import "ConstantsConfig.h"
 #import "FWTopView.h"
-#import "FWImagePickerTableViewController.h"
 
 @interface ViewController ()
-
 @property (nonatomic, strong) FWTopView *topView;
-@property (nonatomic, strong) FWImagePickerTableViewController *imagePicker;
 @end
 
 @implementation ViewController
@@ -64,9 +61,6 @@
     self.topView = [[FWTopView alloc] initWithFrame:CGRectMake(317,  0, TOPVIEW_WIDTH, TOPVIEW_HEIGHT)];
     [self.view addSubview:self.topView];
     [self.topView initView:@"20"];
-    
-    self.imagePicker = [[FWImagePickerTableViewController alloc] initWithStyle:UITableViewStylePlain];
-    
 }
 
 
@@ -163,9 +157,45 @@
 
 - (void)functionView:(FWFucView *)fuctionView
 {
-    [self.navigationController pushViewController:self.imagePicker animated:YES];
-    NSLog(@"%f",self.imagePicker.view.frame.size.width);
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
+    {
+        imagePicker = [[UIImagePickerController alloc] init];
+//        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:imagePicker];
+
+        imagePicker.delegate = self;
+        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+//        imagePicker.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        [self.navigationController pushViewController:imagePicker animated:YES];
+    }
+    if (self.navigationController == nil) {
+        NSLog(@"nil");
+    }
 }
 
+#pragma mark - UIImagePickerControllerDelegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *selectedImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+    currentImage = [self imageWithImageSimple:selectedImage scaleToSize:CGSizeMake(375, 400)];
+    [self dismissViewControllerAnimated:YES completion:^{
+        beautyVC = [[FWBeautyViewController alloc] init];
+        [self.navigationController pushViewController:beautyVC animated:YES];
+    }];
+}
+
+- (UIImage *)imageWithImageSimple:(UIImage *)image scaleToSize:(CGSize)Newsize
+{
+    UIGraphicsBeginImageContext(Newsize);
+    
+    [image drawInRect:CGRectMake(0, 0, Newsize.width, Newsize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    
+}
 
 @end

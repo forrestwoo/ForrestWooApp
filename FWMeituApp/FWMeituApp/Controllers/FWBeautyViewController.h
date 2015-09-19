@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FWBeautyViewController : UIViewController
+@interface FWBeautyViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+{
+    UIImagePickerController *imagePicker;
+}
 
 @end

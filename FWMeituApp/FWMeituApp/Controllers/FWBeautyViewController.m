@@ -17,11 +17,44 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera])
+    {
+        NSLog(@"支持相机");
+    }
+    if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
+    {
+        NSLog(@"支持图库");
+
+    }
+
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - UIImagePickerControllerDelegate
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    UIImage *selectedImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+   UIImage *currentImage = [self imageWithImageSimple:selectedImage scaleToSize:CGSizeMake(375, 400)];
+}
+
+- (UIImage *)imageWithImageSimple:(UIImage *)image scaleToSize:(CGSize)Newsize
+{
+    UIGraphicsBeginImageContext(Newsize);
+    
+    [image drawInRect:CGRectMake(0, 0, Newsize.width, Newsize.height)];
+    UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return newImage;
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    
 }
 
 /*
