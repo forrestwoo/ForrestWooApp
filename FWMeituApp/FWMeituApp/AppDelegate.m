@@ -17,9 +17,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    [NSThread sleepForTimeInterval:1.0];
+    [NSThread sleepForTimeInterval:0.0];
     
     [application setStatusBarHidden:YES withAnimation:UIStatusBarAnimationFade];
+    
     return YES;
 }
 

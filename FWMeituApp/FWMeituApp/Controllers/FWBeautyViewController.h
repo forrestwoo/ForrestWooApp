@@ -8,9 +8,17 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FWBeautyViewController : UIViewController <UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+#import "FWProcessImageMainMode.h"
+
+@interface FWBeautyViewController : UIViewController
 {
     UIImagePickerController *imagePicker;
+    FWProcessImageMainMode *modeView ;
 }
 
+@property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) UIScrollView *scrollView;
+@property (nonatomic, strong) UIImage *image;
+
+- (id)initWithImage:(UIImage *)image;
 @end

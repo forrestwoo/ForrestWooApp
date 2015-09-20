@@ -20,7 +20,7 @@
 - (void)loadView
 {
     [super loadView];
-    
+    self.navigationController.delegate = self;
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bg_home@2x.jpg"]];
     self.scrolleView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 137, 375, 393)];
     self.scrolleView.pagingEnabled = YES;
@@ -164,8 +164,11 @@
 
         imagePicker.delegate = self;
         imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-//        imagePicker.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-        [self.navigationController pushViewController:imagePicker animated:YES];
+        imagePicker.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+        [self presentViewController:imagePicker animated:YES completion:^{
+        
+        }
+         ];
     }
     if (self.navigationController == nil) {
         NSLog(@"nil");
@@ -176,11 +179,12 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     UIImage *selectedImage = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
-    currentImage = [self imageWithImageSimple:selectedImage scaleToSize:CGSizeMake(375, 400)];
-    [self dismissViewControllerAnimated:YES completion:^{
-        beautyVC = [[FWBeautyViewController alloc] init];
-        [self.navigationController pushViewController:beautyVC animated:YES];
-    }];
+    
+    currentImage = [self imageWithImageSimple:selectedImage scaleToSize:CGSizeMake(selectedImage.size.width, selectedImage.size.height)];
+
+        beautyVC = [[FWBeautyViewController alloc] initWithImage:currentImage];
+        [imagePicker pushViewController:beautyVC animated:YES];
+   
 }
 
 - (UIImage *)imageWithImageSimple:(UIImage *)image scaleToSize:(CGSize)Newsize
@@ -195,7 +199,9 @@
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-    
+    [self dismissViewControllerAnimated:imagePicker completion:^{
+        
+    }];
 }
 
 @end
