@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "ConstantsConfig.h"
 #import "FWTopView.h"
+#import "FWButton.h"
 
 @interface ViewController ()
 @property (nonatomic, strong) FWTopView *topView;
@@ -127,51 +128,53 @@
                                   @"icon_home_camera@2x.png", @"icon_home_material@2x.png", @"icon_home_meiyan@2x.png",
                                   @"icon_home_meipai@2x.png", @"icon_home_moreapp@2x.png",
                                   nil];
+    
+    NSArray *highLightedBackImageArr = [NSArray arrayWithObjects:
+                                        @"home_block_red_b@2x.png", @"home_block_pink_b@2x.png", @"home_block_green_b@2x.png",
+                                        @"home_block_orange_b@2x.png", @"home_block_blue_b@2x.png", @"item_bg_purple_b@2x.png",
+                                        @"home_block_pink_b@2x.png", @"home_block_red_b@2x.png",
+                                        nil];
     NSArray *imageViewBackImageArr = [NSArray arrayWithObjects:
                                       @"home_block_red_a@2x.png", @"home_block_pink_a@2x.png", @"home_block_green_a@2x.png",
                                       @"home_block_orange_a@2x.png", @"home_block_blue_a@2x.png", @"item_bg_purple_a@2x.png",
                                       @"home_block_pink_a@2x.png", @"home_block_red_a@2x.png",
                                       nil];
-    UIImage *iii = [UIImage imageNamed:@"icon_colours_flag@2x.png"];
-        NSLog(@"%f,%f",iii.size.width,iii.size.height);
-    UIImage *ii = [UIImage imageNamed:@"icon_blur_heart@2x.png"];
-        NSLog(@"%f,%f",ii.size.width,ii.size.height);
-//    UIImage *i = [UIImage imageNamed:@"icon_home_beauty@2x.png"];
-//    //    NSLog(@"%f,%f",i.size.width,i.size.height);
+
     NSArray *textArr = [NSArray arrayWithObjects:@"美化图片", @"人像美容", @"拼图", @"万能相机", @"素材中心", @"美颜相机", @"美拍", @"更多功能", nil];
-    NSArray *widthArr = [NSArray arrayWithObjects:[NSNumber numberWithInt:65],[NSNumber numberWithInt:207], [NSNumber numberWithInt:65],[NSNumber numberWithInt:207],[NSNumber numberWithInt:65],[NSNumber numberWithInt:207],[NSNumber numberWithInt:440],[NSNumber numberWithInt:582],nil];
-    NSArray *heightArr = [NSArray arrayWithObjects:[NSNumber numberWithInt:0],[NSNumber numberWithInt:0], [NSNumber numberWithInt:144],[NSNumber numberWithInt:144],[NSNumber numberWithInt:281],[NSNumber numberWithInt:281],[NSNumber numberWithInt:0],[NSNumber numberWithInt:0],nil];
+    NSArray *xArr = [NSArray arrayWithObjects:[NSNumber numberWithInt:65],[NSNumber numberWithInt:207], [NSNumber numberWithInt:65],[NSNumber numberWithInt:207],[NSNumber numberWithInt:65],[NSNumber numberWithInt:207],[NSNumber numberWithInt:440],[NSNumber numberWithInt:582],nil];
+    NSArray *yArr = [NSArray arrayWithObjects:[NSNumber numberWithInt:0],[NSNumber numberWithInt:0], [NSNumber numberWithInt:144],[NSNumber numberWithInt:144],[NSNumber numberWithInt:281],[NSNumber numberWithInt:281],[NSNumber numberWithInt:0],[NSNumber numberWithInt:0],nil];
     
     //144.144+206+50,,,x+144,x+144+206+50...210*3+2*50=...300+210+52+210+52
-    FWFucView *fv = nil;
+//    FWFucView *fv = nil;
+    FWButton *btnHome = nil;
     for (int i = 0; i < 8; i++) {
-        fv = [[FWFucView alloc] initWithFrame:CGRectMake([(NSString *)[widthArr objectAtIndex:i] floatValue], [(NSString *)[heightArr objectAtIndex:i] floatValue], 103, 105)];
-        NSArray *arr = [NSArray arrayWithObjects: [imageViewBackImageArr objectAtIndex:i], [imageViewImageArr objectAtIndex:i], [textArr objectAtIndex:i], nil];
-        [fv initView:arr];
-        [self.scrolleView addSubview:fv];
-        fv.delegate = self;
+        btnHome = [FWButton buttonWithType:UIButtonTypeCustom];
+        [btnHome setTitle:[textArr objectAtIndex:i] forState:UIControlStateNormal];
+        [btnHome setImage:[UIImage imageNamed:[imageViewImageArr objectAtIndex:i]] forState:UIControlStateNormal];
+        [btnHome setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:[imageViewBackImageArr objectAtIndex:i]]]];
+        [btnHome setBackgroundColorHighlighted:[UIColor colorWithPatternImage:[UIImage imageNamed:[highLightedBackImageArr objectAtIndex:i]]]];
+        btnHome.frame =CGRectMake([(NSString *)[xArr objectAtIndex:i] floatValue], [(NSString *)[yArr objectAtIndex:i] floatValue], 103, 105);
+[btnHome.titleLabel setFont:[UIFont systemFontOfSize:14]];
+        [btnHome addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
+        btnHome.topPading = 0.5;
+        [self.scrolleView addSubview:btnHome];
     }
 }
 
-
-
-- (void)functionView:(FWFucView *)fuctionView
+- (void)btnClicked:(id)sender
 {
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
     {
         imagePicker = [[UIImagePickerController alloc] init];
-//        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:imagePicker];
-
+        //        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:imagePicker];
+        
         imagePicker.delegate = self;
         imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
         imagePicker.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
         [self presentViewController:imagePicker animated:YES completion:^{
-        
+            
         }
          ];
-    }
-    if (self.navigationController == nil) {
-        NSLog(@"nil");
     }
 }
 

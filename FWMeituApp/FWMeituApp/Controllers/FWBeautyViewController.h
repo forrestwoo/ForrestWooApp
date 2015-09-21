@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-#import "FWProcessImageMainMode.h"
+#import "FWButton.h"
 
 @interface FWBeautyViewController : UIViewController
 {
     UIImagePickerController *imagePicker;
-    FWProcessImageMainMode *modeView ;
+    FWButton *modeView ;
 }
 
 @property (nonatomic, strong) UIImageView *imageView;

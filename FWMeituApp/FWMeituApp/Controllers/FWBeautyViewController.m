@@ -30,12 +30,16 @@
 
     self.title = @"美化图片";
     
-    modeView = [[FWProcessImageMainMode alloc] initWithImage:[UIImage imageNamed:@"icon_function_autoBeauty_a@2x.png"] TouchedImage:[UIImage imageNamed:@"icon_function_autoBeauty_b@2x.png"] text:@"智能优化"];
-
-//    modeView = [[FWProcessImageMainMode alloc] initWithImage:[UIImage imageNamed:@"icon_function_autoBeauty_a@2x.png"] text:@"智能优化"];
+    modeView = [FWButton buttonWithType:UIButtonTypeCustom];
+    [modeView setTitle:@"智能优化" forState:UIControlStateNormal];
+    [modeView setImage:[UIImage imageNamed:@"icon_function_autoBeauty_a@2x.png"] forState:UIControlStateNormal];
+    [modeView setImage:[UIImage imageNamed:@"icon_function_autoBeauty_b@2x.png"] forState:UIControlStateHighlighted];
+    [modeView setBackgroundColor:[UIColor clearColor]];
+    [modeView.titleLabel setFont:[UIFont systemFontOfSize:10]];
+    modeView.frame = CGRectMake(10, 590, 60, 67);
+    modeView.topPading = 4;
     UIImageView *tagImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mc_line@2x.png"]];
     tagImage.frame = CGRectMake(80, 600, 1, 57);
-    modeView.frame = CGRectMake(10, 600, 60, 57);
     [self.view addSubview:modeView];
     [self.view addSubview:tagImage];
     [self initImageView];

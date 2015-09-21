@@ -8,10 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-#import "FWFucView.h"
 #import "FWBeautyViewController.h"
 
-@interface ViewController : UIViewController <UIScrollViewDelegate, FWImageProcessFucDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface ViewController : UIViewController <UIScrollViewDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 {
     UIButton *btnArrow;
     FWBeautyViewController *beautyVC;
