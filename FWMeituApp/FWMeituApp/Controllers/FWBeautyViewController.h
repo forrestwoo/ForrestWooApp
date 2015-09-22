@@ -14,6 +14,7 @@
 {
     UIImagePickerController *imagePicker;
     FWButton *modeView ;
+    UIColor *highlightedTextColor;
 }
 
 @property (nonatomic, strong) UIImageView *imageView;
