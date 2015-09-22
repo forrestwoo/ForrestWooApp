@@ -13,5 +13,7 @@
 @property (nonatomic, assign) CGFloat cornerRadius;
 @property (nonatomic, strong) UIColor *backgroundColor;
 @property (nonatomic, strong) UIColor *backgroundColorHighlighted;
+@property (nonatomic, strong) UIColor *normalTextColor;
+@property (nonatomic, strong) UIColor *highlightedTextColor;
 @property (nonatomic, assign) float topPading;
 @end

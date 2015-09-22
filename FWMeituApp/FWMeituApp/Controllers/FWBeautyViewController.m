@@ -37,7 +37,8 @@
     [modeView setBackgroundColor:[UIColor clearColor]];
     [modeView.titleLabel setFont:[UIFont systemFontOfSize:10]];
     modeView.frame = CGRectMake(10, 590, 60, 67);
-    modeView.topPading = 4;
+    modeView.highlightedTextColor = [UIColor colorWithRed:19 / 255.0 green:105 / 255.0 blue:240 / 255.0 alpha:1.0];
+    modeView.topPading = 3;
     UIImageView *tagImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mc_line@2x.png"]];
     tagImage.frame = CGRectMake(80, 600, 1, 57);
     [self.view addSubview:modeView];

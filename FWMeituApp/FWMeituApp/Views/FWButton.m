@@ -56,14 +56,21 @@
 {
     CGContextRef context = UIGraphicsGetCurrentContext();
     
-//    if (self.normalButtonImage == nil)
-//    {
-//        self.normalButtonImage = [self imageForState:UIControlStateNormal];
-//    }
+    //    if (self.normalButtonImage == nil)
+    //    {
+    //        self.normalButtonImage = [self imageForState:UIControlStateNormal];
+    //    }
     if (self.normalButtonImage == nil || self.highlightedButtonImage == nil) {
         self.normalButtonImage = [self imageForState:UIControlStateNormal];
         self.highlightedButtonImage = [self imageForState:UIControlStateHighlighted];
         [self.imageView removeFromSuperview];
+    }
+    
+    if (self.normalTextColor == nil) {
+        self.normalTextColor = [UIColor whiteColor];
+    }
+    if (self.highlightedTextColor == nil) {
+        self.highlightedTextColor = [UIColor whiteColor];
     }
     
     UIImage *buttonImage;
@@ -73,7 +80,9 @@
     }
     else {
         CGContextSetFillColorWithColor(context, self.backgroundColorHighlighted.CGColor);
-
+        if (self.titleLabel.text.length > 0) {
+            //            CGContextSetFillColorWithColor(context, [UIColor redColor].CGColor);
+        }
         if (self.normalButtonImage != self.highlightedButtonImage && self.highlightedButtonImage != nil) {
             buttonImage = self.highlightedButtonImage;
         }
@@ -104,7 +113,11 @@
     
     // Draw button title
     if (self.titleLabel.text.length > 0) {
-        CGContextSetFillColorWithColor(context, [UIColor whiteColor].CGColor);
+        if (self.state == UIControlStateNormal) {
+            CGContextSetFillColorWithColor(context, self.normalTextColor.CGColor);
+        }else {
+            CGContextSetFillColorWithColor(context, self.highlightedTextColor.CGColor);
+        }
         [self.titleLabel.text drawInRect:CGRectMake(0.f, (buttonImage != nil ? rect.size.height-kButtonOffset+self.topPading *kTopPadding: rect.size.height/2 - 10.f), rect.size.width, 20.f)
                                 withFont:self.titleLabel.font
                            lineBreakMode:self.titleLabel.lineBreakMode
