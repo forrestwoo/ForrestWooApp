@@ -55,15 +55,29 @@
 - (void)initImageView
 {
     self.imageView = [[UIImageView alloc] initWithImage:self.image];
-    self.imageView.frame = CGRectMake(0, 64, 375, 667 - 44 - 77 - 20);
+    CGSize size = self.image.size;
+    CGFloat imageWidth = size.width;
+    CGFloat imageHeight = size.height;
+    CGFloat xPoiont = 0;
+    CGFloat yPoint = 64;
+    if (imageWidth == 375) {
+        yPoint = (520 - imageHeight) / 2.0 + 64;
+    }
+    if (imageHeight == 520) {
+        xPoiont = (375 - imageWidth) / 2.0 ;
+    }
+
+    self.imageView.frame = CGRectMake(xPoiont, yPoint, 375, 520);
     [self.imageView sizeToFit];
+    self.imageView.clipsToBounds = YES;
+
     [self.view addSubview:self.imageView];
 }
 
 - (void)initScrolleView
 {
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(61, kPoint_Y, 375, 67)];
-    self.scrollView.contentSize = CGSizeMake(800, 67);
+    self.scrollView.contentSize = CGSizeMake(580, 67);
     self.scrollView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:self.scrollView];
 
