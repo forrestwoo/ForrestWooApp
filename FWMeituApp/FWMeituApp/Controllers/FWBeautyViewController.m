@@ -10,6 +10,7 @@
 #define kHeight 67
 #define kPoint_Y 590
 
+#import "UIImage+ImageScale.h"
 #import "FWBeautyViewController.h"
 
 @interface FWBeautyViewController ()
@@ -44,6 +45,8 @@
     highlightedTextColor = [UIColor colorWithRed:19 / 255.0 green:105 / 255.0 blue:240 / 255.0 alpha:1.0];
     modeView.highlightedTextColor = highlightedTextColor;
     modeView.topPading = 3;
+    [modeView addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
+
     UIImageView *tagImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mc_line@2x.png"]];
     tagImage.frame = CGRectMake(60, 600, 1, 57);
     [self.view addSubview:modeView];
@@ -66,11 +69,11 @@
     if (imageHeight == 520) {
         xPoiont = (375 - imageWidth) / 2.0 ;
     }
-
+    
     self.imageView.frame = CGRectMake(xPoiont, yPoint, 375, 520);
     [self.imageView sizeToFit];
     self.imageView.clipsToBounds = YES;
-
+    
     [self.view addSubview:self.imageView];
 }
 
@@ -80,7 +83,7 @@
     self.scrollView.contentSize = CGSizeMake(580, 67);
     self.scrollView.backgroundColor = [UIColor blackColor];
     [self.view addSubview:self.scrollView];
-
+    
     NSArray *normalImageViewImageArr = [NSArray arrayWithObjects:
                                         @"icon_function_edit_a@2x.png", @"icon_function_color_a@2x.png", @"icon_function_stylize_a@2x.png",
                                         @"icon_function_border_a@2x.png", @"icon_function_mohuanbi_a@2x.png", @"icon_function_mosaic_a@2x.png",
@@ -92,7 +95,7 @@
                                               @"icon_function_text_b@2x.png", @"icon_function_bokeh_b@2x.png",
                                               nil];
     NSArray *textArr = [NSArray arrayWithObjects:@"编辑", @"增强", @"特效", @"边框", @"魔幻笔", @"马赛克", @"文字", @"背景虚化", nil];
-
+    
     //ox 4 pad 15
     FWButton *btFunction = nil;
     int viewSpace = 15;
@@ -109,8 +112,35 @@
         highlightedTextColor = [UIColor colorWithRed:19 / 255.0 green:105 / 255.0 blue:240 / 255.0 alpha:1.0];
         btFunction.highlightedTextColor = highlightedTextColor;
         btFunction.topPading = 3;
-
+        [btFunction addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
         [self.scrollView addSubview:btFunction];
+    }
+}
+
+- (void)btnClicked:(id)sender
+{
+    UIButton *btn = (UIButton *)sender;
+    NSString *text = [btn titleLabel].text;
+    UIImage *image = self.image;
+    if (image.size.height > 460) {
+        image = [UIImage imageCompressForWidth:self.image targetHeight:460];
+    }
+
+    if ([text isEqualToString:@"智能优化"]) {
+        NSArray *normalImageArr = [NSArray arrayWithObjects:
+                                            @"icon_autobeauty1_a@2x.png", @"icon_autobeauty2_a@2x.png", @"icon_autobeauty4_a@2x.png",
+                                            @"icon_autobeauty5_a@2x.png", @"icon_autobeauty6_a@2x.png", @"icon_autobeauty7_a@2x.png",
+                                            @"icon_autobeauty3_a@2x.png",
+                                            nil];
+        NSArray *hightlightedImageArr = [NSArray arrayWithObjects:
+                                                  @"icon_autobeauty1_b@2x.png", @"icon_autobeauty2_b@2x.png", @"icon_autobeauty4_b@2x.png",
+                                                  @"icon_autobeauty5_b@2x.png", @"icon_autobeauty6_b@2x.png", @"icon_autobeauty7_b@2x.png",
+                                                  @"icon_autobeauty3_b@2x.png",
+                                                  nil];
+        NSArray *textArr = [NSArray arrayWithObjects:@"原图", @"自动", @"美食", @"静物", @"景笔", @"去雾", @"人物", nil];
+        FWFunctionViewController *vc = [[FWFunctionViewController alloc] initWithImage:image normalImageArr:normalImageArr highlightedImageArr:hightlightedImageArr textArr:textArr type:text];
+        [self presentViewController:vc animated:YES completion:^{
+        }];
     }
 }
 
