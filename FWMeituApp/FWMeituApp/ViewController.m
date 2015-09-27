@@ -7,7 +7,6 @@
 //375*667
 
 #import "ViewController.h"
-#import "ConstantsConfig.h"
 #import "FWTopView.h"
 #import "FWButton.h"
 #import "UIImage+ImageScale.h"
@@ -17,7 +16,6 @@
 @end
 
 @implementation ViewController
-
 
 - (void)loadView
 {

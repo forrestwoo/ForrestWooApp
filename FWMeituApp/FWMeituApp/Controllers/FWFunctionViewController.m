@@ -11,29 +11,14 @@
 
 #import "FWFunctionViewController.h"
 #import "ConstantsConfig.h"
-#import "UIImage+ImageScale.h"
 
 @interface FWFunctionViewController ()
 
 @property (nonatomic, assign) NSInteger itemCount;
-
+@property (nonatomic, strong)  UIImageView *imageView;
 @end
 
 @implementation FWFunctionViewController
-
-- (id)initWithNormalImageArr:(NSArray *)normalImageArray highlightedImageArr:(NSArray *)highlightedImageArr textArr:(NSArray *)textArray type:(NSString *)type
-{
-    if (self = [super init])
-    {
-        self.normalImageArr = normalImageArray;
-        self.hightlightedImageArr = highlightedImageArr;
-        self.texts = textArray;
-        self.itemCount = [normalImageArray count];
-        self.FunctionType = type;
-    }
-    
-    return self;
-}
 
 - (id)initWithImage:(UIImage *)image normalImageArr:(NSArray *)normalImageArray highlightedImageArr:(NSArray *)highlightedImageArr textArr:(NSArray *)textArray type:(NSString *)type
 {
@@ -60,7 +45,7 @@
     title.textColor = [UIColor whiteColor];
     [self.view addSubview:title];
     
-    UIImageView *imageView = [[UIImageView alloc] initWithImage:self.image];
+    self.imageView = [[UIImageView alloc] initWithImage:self.image];
     CGSize size = self.image.size;
     CGFloat imageWidth = size.width;
     CGFloat imageHeight = size.height;
@@ -73,9 +58,9 @@
         xPoiont = (375 - imageWidth) / 2.0 ;
     }
     
-    imageView.frame = CGRectMake(xPoiont, yPoint, 375, 520);
-    [imageView sizeToFit];
-    [self.view addSubview:imageView];
+    self.imageView.frame = CGRectMake(xPoiont, yPoint, 375, 520);
+    [self.imageView sizeToFit];
+    [self.view addSubview:self.imageView];
     
     UIImage *i1 = [UIImage imageNamed:@"btn_cancel_a@2x.png"];
     self.btnClose = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -120,7 +105,9 @@
 
 - (void)effectBar:(FWEffectBar *)bar didSelectItemAtIndex:(NSInteger)index
 {
-    
+    if (!index) {
+//        self.
+    }
 }
 
 - (void)setSelectedIndex:(NSUInteger)selectedIndex
