@@ -63,7 +63,10 @@
     [self.topView initView:@"20"];
 }
 
-
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
 //
 - (void)hanlderAction:(NSTimer *)timer
 {

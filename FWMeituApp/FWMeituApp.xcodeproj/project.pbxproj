@@ -45,7 +45,6 @@
 		D7044D9D1BAEBA7300C41E94 /* icon_function_text_b@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D7044D771BAEBA7300C41E94 /* icon_function_text_b@3x.png */; };
 		D7044D9E1BAEBA7300C41E94 /* share_tag_line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D7044D781BAEBA7300C41E94 /* share_tag_line@2x.png */; };
 		D7044D9F1BAEBA7300C41E94 /* share_tag_line@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D7044D791BAEBA7300C41E94 /* share_tag_line@3x.png */; };
-		D7044DA21BAEBD6000C41E94 /* FWProcessImageMainMode.m in Sources */ = {isa = PBXBuildFile; fileRef = D7044DA11BAEBD6000C41E94 /* FWProcessImageMainMode.m */; };
 		D7044DA41BAEC8CA00C41E94 /* mc_line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D7044DA31BAEC8CA00C41E94 /* mc_line@2x.png */; };
 		D704863E1BAFE85200A847BF /* home_block_blue_b@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D70486341BAFE85200A847BF /* home_block_blue_b@2x.png */; };
 		D704863F1BAFE85200A847BF /* home_block_blue_b@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D70486351BAFE85200A847BF /* home_block_blue_b@3x.png */; };
@@ -639,8 +638,6 @@
 		D7044D771BAEBA7300C41E94 /* icon_function_text_b@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon_function_text_b@3x.png"; path = "Images/美化图片/icon_function_text_b@3x.png"; sourceTree = "<group>"; };
 		D7044D781BAEBA7300C41E94 /* share_tag_line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "share_tag_line@2x.png"; path = "Images/美化图片/share_tag_line@2x.png"; sourceTree = "<group>"; };
 		D7044D791BAEBA7300C41E94 /* share_tag_line@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "share_tag_line@3x.png"; path = "Images/美化图片/share_tag_line@3x.png"; sourceTree = "<group>"; };
-		D7044DA01BAEBD6000C41E94 /* FWProcessImageMainMode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FWProcessImageMainMode.h; path = Views/FWProcessImageMainMode.h; sourceTree = "<group>"; };
-		D7044DA11BAEBD6000C41E94 /* FWProcessImageMainMode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FWProcessImageMainMode.m; path = Views/FWProcessImageMainMode.m; sourceTree = "<group>"; };
 		D7044DA31BAEC8CA00C41E94 /* mc_line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mc_line@2x.png"; path = "Images/美化图片/mc_line@2x.png"; sourceTree = "<group>"; };
 		D70486341BAFE85200A847BF /* home_block_blue_b@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "home_block_blue_b@2x.png"; path = "Images/home_block_blue_b@2x.png"; sourceTree = "<group>"; };
 		D70486351BAFE85200A847BF /* home_block_blue_b@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "home_block_blue_b@3x.png"; path = "Images/home_block_blue_b@3x.png"; sourceTree = "<group>"; };
@@ -1822,8 +1819,6 @@
 				D70FC0A91BAF1C9D00711F55 /* Custom Control */,
 				D7C438DD1BABECAA005317BE /* FWTopView.h */,
 				D7C438DE1BABECAA005317BE /* FWTopView.m */,
-				D7044DA01BAEBD6000C41E94 /* FWProcessImageMainMode.h */,
-				D7044DA11BAEBD6000C41E94 /* FWProcessImageMainMode.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1984,7 +1979,6 @@
 		D71E6F071BA88A2000BCC79C /* FWMeituApp */ = {
 			isa = PBXGroup;
 			children = (
-				D7E677D61BB0627D0076C9F3 /* Main.storyboard */,
 				D71751A01BA94126004E9291 /* Utilies */,
 				D717519F1BA9411A004E9291 /* Controllers */,
 				D717519E1BA94112004E9291 /* Network */,
@@ -2000,6 +1994,7 @@
 				D71E6F181BA88A2000BCC79C /* Images.xcassets */,
 				D71E6F1A1BA88A2000BCC79C /* LaunchScreen.xib */,
 				D71E6F0F1BA88A2000BCC79C /* FWMeituApp.xcdatamodeld */,
+				D7E677D61BB0627D0076C9F3 /* Main.storyboard */,
 				D71E6F081BA88A2000BCC79C /* Supporting Files */,
 				D71594A51BB83E1700631A3C /* FWMeituApp-prefix.pch */,
 			);
@@ -3005,7 +3000,6 @@
 				D714A5F11BB4565400AA950D /* GPUImageFilterPipeline.m in Sources */,
 				D71E6F111BA88A2000BCC79C /* FWMeituApp.xcdatamodeld in Sources */,
 				D714A6551BB4565400AA950D /* GPUImageToonFilter.m in Sources */,
-				D7044DA21BAEBD6000C41E94 /* FWProcessImageMainMode.m in Sources */,
 				D714A6211BB4565400AA950D /* GPUImageMultiplyBlendFilter.m in Sources */,
 				D714A61C1BB4565400AA950D /* GPUImageMosaicFilter.m in Sources */,
 				D714A6281BB4565400AA950D /* GPUImageOverlayBlendFilter.m in Sources */,

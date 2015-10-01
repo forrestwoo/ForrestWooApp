@@ -15,7 +15,8 @@
 @interface FWFunctionViewController ()
 
 @property (nonatomic, assign) NSInteger itemCount;
-@property (nonatomic, strong)  UIImageView *imageView;
+@property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) UIImage *currentImage;
 @end
 
 @implementation FWFunctionViewController
@@ -84,6 +85,7 @@
         [arr addObject:item];
     }
     self.effectBar.items = arr;
+    self.effectBar.delegate = self;
     [self.view addSubview:self.effectBar];
 }
 
@@ -105,8 +107,78 @@
 
 - (void)effectBar:(FWEffectBar *)bar didSelectItemAtIndex:(NSInteger)index
 {
-    if (!index) {
-//        self.
+    GPUImageBrightnessFilter *passthroughFilter = [[GPUImageBrightnessFilter alloc]init];
+    GPUImageExposureFilter *g2 = [[GPUImageExposureFilter alloc] init];
+    GPUImageContrastFilter *g3 = [[GPUImageContrastFilter alloc] init];
+    GPUImageSaturationFilter *g4 = [[GPUImageSaturationFilter alloc] init];
+    GPUImageGammaFilter *g5 = [[GPUImageGammaFilter alloc] init];
+    GPUImageHueFilter *g6 = [[GPUImageHueFilter alloc] init];
+    
+    CGSize size = self.image.size;
+    GPUImagePicture *pic ;
+    switch (index) {
+        case 0:
+            self.currentImage = self.image;
+            self.imageView.image = self.image;
+            break;
+            
+        case 1:
+            passthroughFilter.brightness = 0.05;
+            [passthroughFilter forceProcessingAtSize:size];
+            pic = [[GPUImagePicture alloc] initWithImage:self.image];
+            [pic addTarget:passthroughFilter];
+            [pic processImage];
+            [passthroughFilter useNextFrameForImageCapture];
+            self.imageView.image =[passthroughFilter imageFromCurrentFramebuffer];
+            break;
+            
+        case 2:
+            g2.exposure = 0.2;
+            [g2 forceProcessingAtSize:size];
+            pic = [[GPUImagePicture alloc] initWithImage:self.image];
+            [pic addTarget:g2];
+            [pic processImage];
+            [g2 useNextFrameForImageCapture];
+            self.imageView.image =[g2 imageFromCurrentFramebuffer];
+            break;
+        case 3:
+            g3.contrast = 0.8;
+            [g3 forceProcessingAtSize:size];
+            pic = [[GPUImagePicture alloc] initWithImage:self.image];
+            [pic addTarget:g3];
+            [pic processImage];
+            [g3 useNextFrameForImageCapture];
+            self.imageView.image =[g3 imageFromCurrentFramebuffer];
+            break;
+        case 4:
+            g4.saturation = 0.5;
+            [g4 forceProcessingAtSize:size];
+            pic = [[GPUImagePicture alloc] initWithImage:self.image];
+            [pic addTarget:g4];
+            [pic processImage];
+            [g4 useNextFrameForImageCapture];
+            self.imageView.image =[g4 imageFromCurrentFramebuffer];
+            break;
+        case 5:
+            g5.gamma = 0.5;
+            [g5 forceProcessingAtSize:size];
+            pic = [[GPUImagePicture alloc] initWithImage:self.image];
+            [pic addTarget:g5];
+            [pic processImage];
+            [g5 useNextFrameForImageCapture];
+            self.imageView.image =[g5 imageFromCurrentFramebuffer];
+            break;
+        case 6:
+            g6.hue = 5;
+            [g6 forceProcessingAtSize:size];
+            pic = [[GPUImagePicture alloc] initWithImage:self.image];
+            [pic addTarget:g6];
+            [pic processImage];
+            [g6 useNextFrameForImageCapture];
+            self.imageView.image =[g6 imageFromCurrentFramebuffer];
+            break;
+        default:
+            break;
     }
 }
 
@@ -115,8 +187,6 @@
     if (selectedIndex >= self.itemCount) {
         return;
     }
-    
-    
 }
 
 - (FWEffectBarItem *)selectedItem

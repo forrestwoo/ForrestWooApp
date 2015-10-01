@@ -55,6 +55,11 @@
     [self initScrolleView];
 }
 
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
+
 - (void)initImageView
 {
     self.imageView = [[UIImageView alloc] initWithImage:self.image];
