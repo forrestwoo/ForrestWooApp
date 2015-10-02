@@ -182,15 +182,9 @@
     }
 }
 
-- (void)setSelectedIndex:(NSUInteger)selectedIndex
+- (void)effectFunc
 {
-    if (selectedIndex >= self.itemCount) {
-        return;
-    }
+    
 }
 
-- (FWEffectBarItem *)selectedItem
-{
-    return nil;
-}
 @end

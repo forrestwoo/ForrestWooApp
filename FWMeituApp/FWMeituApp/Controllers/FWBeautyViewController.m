@@ -130,19 +130,17 @@
     if (image.size.height > 460) {
         image = [UIImage imageCompressForWidth:self.image targetHeight:460];
     }
+    
+    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"effectViewInfo" ofType:@"plist"];
+    NSDictionary *dict  = [[NSDictionary alloc] initWithContentsOfFile:plistPath];
+    NSLog(@"dict:%@",dict);
 
     if ([text isEqualToString:@"智能优化"]) {
-        NSArray *normalImageArr = [NSArray arrayWithObjects:
-                                            @"icon_autobeauty1_a@2x.png", @"icon_autobeauty2_a@2x.png", @"icon_autobeauty4_a@2x.png",
-                                            @"icon_autobeauty5_a@2x.png", @"icon_autobeauty6_a@2x.png", @"icon_autobeauty7_a@2x.png",
-                                            @"icon_autobeauty3_a@2x.png",
-                                            nil];
-        NSArray *hightlightedImageArr = [NSArray arrayWithObjects:
-                                                  @"icon_autobeauty1_b@2x.png", @"icon_autobeauty2_b@2x.png", @"icon_autobeauty4_b@2x.png",
-                                                  @"icon_autobeauty5_b@2x.png", @"icon_autobeauty6_b@2x.png", @"icon_autobeauty7_b@2x.png",
-                                                  @"icon_autobeauty3_b@2x.png",
-                                                  nil];
-        NSArray *textArr = [NSArray arrayWithObjects:@"原图", @"自动", @"美食", @"静物", @"景笔", @"去雾", @"人物", nil];
+        NSDictionary *autoDict = [dict objectForKey:@"AutoBeauty"];
+        
+        NSArray *normalImageArr = [autoDict objectForKey:@"normalImages"];
+        NSArray *hightlightedImageArr = [autoDict objectForKey:@"HighlightedImages"];
+        NSArray *textArr = [autoDict objectForKey:@"Texts"];
         FWFunctionViewController *vc = [[FWFunctionViewController alloc] initWithImage:image normalImageArr:normalImageArr highlightedImageArr:hightlightedImageArr textArr:textArr type:text];
         [self presentViewController:vc animated:YES completion:^{
         }];

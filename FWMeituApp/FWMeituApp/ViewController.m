@@ -63,10 +63,11 @@
     [self.topView initView:@"20"];
 }
 
-- (BOOL)prefersStatusBarHidden
+- (void)viewWillAppear:(BOOL)animated
 {
-    return YES;
+    [[UIApplication sharedApplication] setStatusBarHidden:YES];
 }
+
 //
 - (void)hanlderAction:(NSTimer *)timer
 {
@@ -165,19 +166,21 @@
 
 - (void)btnClicked:(id)sender
 {
-    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
-    {
-        imagePicker = [[UIImagePickerController alloc] init];
-        //        UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:imagePicker];
-        
-        imagePicker.delegate = self;
-        imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
-        imagePicker.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
-        [self presentViewController:imagePicker animated:YES completion:^{
+    if ([[(UIButton *)sender titleLabel].text isEqualToString:@"美化图片"]) {
+        if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary])
+        {
+            imagePicker = [[UIImagePickerController alloc] init];
             
+            imagePicker.delegate = self;
+            imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            [self presentViewController:imagePicker animated:YES completion:^{
+                [[UIApplication sharedApplication] setStatusBarHidden:YES];
+
+            }
+             ];
         }
-         ];
     }
+
 }
 
 #pragma mark - UIImagePickerControllerDelegate

@@ -16,8 +16,7 @@
 @property (nonatomic, strong)  UIButton *btnClose;
 @property (nonatomic, strong)  UIButton *btnSave;
 @property (nonatomic, strong)  FWEffectBar *effectBar;
-@property (nonatomic) NSUInteger selectedIndex;
-@property (nonatomic, strong) FWEffectBarItem *selectedItem;
+
 @property (nonatomic, strong) NSArray *normalImageArr;
 @property (nonatomic, strong) NSArray *hightlightedImageArr;
 @property (nonatomic, strong) NSArray *texts;
