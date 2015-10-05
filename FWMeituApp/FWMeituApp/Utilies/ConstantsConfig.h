@@ -17,4 +17,8 @@
 #define TOPVIEW_HEIGHT 61
 #define HEART_WIDTH 35
 #define HEART_HEIGHT 35
+
+#define kTitleWidth 60
+#define kTitleHeight 20
+#define kCancelHeight 30
 #endif

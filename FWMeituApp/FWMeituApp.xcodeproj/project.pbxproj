@@ -112,6 +112,7 @@
 		D70EC2901BAACFF400A1EC26 /* icon_home_star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D70EC27A1BAACFF400A1EC26 /* icon_home_star@2x.png */; };
 		D70EC2911BAACFF400A1EC26 /* icon_home_star@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D70EC27B1BAACFF400A1EC26 /* icon_home_star@3x.png */; };
 		D70FC0AC1BAF1CC100711F55 /* FWButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D70FC0AB1BAF1CC100711F55 /* FWButton.m */; };
+		D71064491BBECDCF00DF04AC /* FWCommonFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = D71064481BBECDCF00DF04AC /* FWCommonFilter.m */; };
 		D710DCC51BB1BCBD00A30B4E /* FWFunctionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D710DCC31BB1BCBD00A30B4E /* FWFunctionViewController.m */; };
 		D710DCC61BB1BCBD00A30B4E /* FWFunctionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D710DCC41BB1BCBD00A30B4E /* FWFunctionViewController.xib */; };
 		D714A4681BB4551400AA950D /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D714A4671BB4551400AA950D /* GLKit.framework */; };
@@ -708,6 +709,8 @@
 		D70EC27B1BAACFF400A1EC26 /* icon_home_star@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon_home_star@3x.png"; path = "Images/icon_home_star@3x.png"; sourceTree = "<group>"; };
 		D70FC0AA1BAF1CC100711F55 /* FWButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FWButton.h; path = Views/FWButton.h; sourceTree = "<group>"; };
 		D70FC0AB1BAF1CC100711F55 /* FWButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FWButton.m; path = Views/FWButton.m; sourceTree = "<group>"; };
+		D71064471BBECDCF00DF04AC /* FWCommonFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FWCommonFilter.h; path = Utilies/FWCommonFilter.h; sourceTree = "<group>"; };
+		D71064481BBECDCF00DF04AC /* FWCommonFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FWCommonFilter.m; path = Utilies/FWCommonFilter.m; sourceTree = "<group>"; };
 		D710DCC21BB1BCBD00A30B4E /* FWFunctionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FWFunctionViewController.h; path = Controllers/FWFunctionViewController.h; sourceTree = "<group>"; };
 		D710DCC31BB1BCBD00A30B4E /* FWFunctionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FWFunctionViewController.m; path = Controllers/FWFunctionViewController.m; sourceTree = "<group>"; };
 		D710DCC41BB1BCBD00A30B4E /* FWFunctionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FWFunctionViewController.xib; path = Controllers/FWFunctionViewController.xib; sourceTree = "<group>"; };
@@ -1859,6 +1862,8 @@
 				D711E1971BA9740D002F04DC /* ConstantsConfig.h */,
 				D7F893151BB32AE40067726B /* UIImage+ImageScale.h */,
 				D7F893161BB32AE40067726B /* UIImage+ImageScale.m */,
+				D71064471BBECDCF00DF04AC /* FWCommonFilter.h */,
+				D71064481BBECDCF00DF04AC /* FWCommonFilter.m */,
 			);
 			name = Utilies;
 			sourceTree = "<group>";
@@ -2988,6 +2993,7 @@
 				D714A5CB1BB4565400AA950D /* GPUImageAmatorkaFilter.m in Sources */,
 				D714A5D31BB4565400AA950D /* GPUImageCannyEdgeDetectionFilter.m in Sources */,
 				D714A63D1BB4565400AA950D /* GPUImageSepiaFilter.m in Sources */,
+				D71064491BBECDCF00DF04AC /* FWCommonFilter.m in Sources */,
 				D7C438DF1BABECAA005317BE /* FWTopView.m in Sources */,
 				D714A5D81BB4565400AA950D /* GPUImageColorBlendFilter.m in Sources */,
 				D714A5C61BB4565400AA950D /* GPUImage3x3ConvolutionFilter.m in Sources */,

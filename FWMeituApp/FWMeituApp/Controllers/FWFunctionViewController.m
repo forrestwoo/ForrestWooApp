@@ -6,13 +6,16 @@
 //  Copyright (c) 2015年 ForrestWoo co,.ltd. All rights reserved.
 //
 
-#define kTitleWidth 60
-#define kTitleHeight 20
+
 
 #import "FWFunctionViewController.h"
 #import "ConstantsConfig.h"
+#import "FWCommonFilter.h"
 
 @interface FWFunctionViewController ()
+{
+    NSInteger selectedIndex ;
+}
 
 @property (nonatomic, assign) NSInteger itemCount;
 @property (nonatomic, strong) UIImageView *imageView;
@@ -39,10 +42,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    selectedIndex = 0;
     self.view.backgroundColor = [UIColor blackColor];
+    
     UILabel *title = [[UILabel alloc] initWithFrame:CGRectMake((WIDTH - kTitleWidth) / 2, 10, kTitleWidth, kTitleHeight)];
     title.text = self.FunctionType;
-    [title setFont:[UIFont systemFontOfSize:12]];
+    [title setFont:[UIFont fontWithName:@"Helvetica-Bold" size:14]];
     title.textColor = [UIColor whiteColor];
     [self.view addSubview:title];
     
@@ -66,27 +71,78 @@
     UIImage *i1 = [UIImage imageNamed:@"btn_cancel_a@2x.png"];
     self.btnClose = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.btnClose setImage:i1 forState:UIControlStateNormal];
-    self.btnClose.frame = CGRectMake(20, HEIGHT - i1.size.height - 10, i1.size.width, i1.size.height);
+    self.btnClose.frame = CGRectMake(20, HEIGHT - kCancelHeight - 10, kCancelHeight, kCancelHeight);
     [self.btnClose addTarget:self action:@selector(btnCancelOrSaveClicked:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.btnClose];
     
     UIImage *i2 = [UIImage imageNamed:@"btn_ok_a@2x.png"];
     self.btnSave = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.btnSave setImage:i2 forState:UIControlStateNormal];
-    self.btnSave.frame = CGRectMake(WIDTH - i2.size.width - 20, HEIGHT - i2.size.height - 10, i2.size.width, i2.size.height);
+    self.btnSave.frame = CGRectMake(WIDTH - kCancelHeight - 20, HEIGHT - kCancelHeight - 10, kCancelHeight, kCancelHeight);
     [self.view addSubview:self.btnSave];
+    self.typeBar = [[FWEffectBar alloc] initWithFrame:CGRectZero];
+    self.typeBar.delegate = self;
+    [self.view addSubview:self.typeBar];
     
-    self.effectBar = [[FWEffectBar alloc] initWithFrame:CGRectMake(0, HEIGHT - i1.size.height - 10 - 20 - 30, WIDTH, 53)];
-    NSMutableArray *arr = [[NSMutableArray alloc] initWithCapacity:0];
-    for (int i = 0; i < self.itemCount; i++) {
-        FWEffectBarItem *item = [[FWEffectBarItem alloc] initWithFrame:CGRectZero];
-        [item setFinishedSelectedImage:[UIImage imageNamed:[self.hightlightedImageArr objectAtIndex:i]] withFinishedUnselectedImage:[UIImage imageNamed:[self.normalImageArr objectAtIndex:i]] ];
-        item.title = [self.texts objectAtIndex:i];
-        [arr addObject:item];
-    }
-    self.effectBar.items = arr;
+    self.effectBar = [[FWEffectBar alloc] initWithFrame:CGRectZero];
     self.effectBar.delegate = self;
     [self.view addSubview:self.effectBar];
+    
+    self.slider = [[UISlider alloc] initWithFrame:CGRectZero];
+    self.slider.minimumValue = -100;
+    self.slider.maximumValue = 100;
+    self.slider.value = 0;
+    
+    [self.view addSubview:self.slider];
+}
+
+- (void)updateValue:(id)sender
+{
+    switch (selectedIndex) {
+        case 0:
+            self.imageView.image =   [FWCommonFilter changeValueForBrightnessFilter:self.slider.value image:self.image];
+            break;
+        case 1:
+            self.imageView.image =   [FWCommonFilter changeValueForContrastFilter:self.slider.value image:self.image];
+            break;
+        case 2:
+            self.imageView.image =   [FWCommonFilter changeValueForWhiteBalanceFilter:self.slider.value image:self.image];
+            break;
+        case 3:
+            self.imageView.image =   [FWCommonFilter changeValueForHightlightFilter:self.slider.value image:self.image];
+            break;
+        case 4:
+            self.imageView.image =   [FWCommonFilter changeValueForHightlightFilter:self.slider.value image:self.image];
+            break;
+        case 5:
+            self.imageView.image =   [FWCommonFilter changeValueForLowlightFilter:self.slider.value image:self.image];
+            break;
+        case 6:
+            self.imageView.image =   [FWCommonFilter changeValueForExposureFilter:self.slider.value image:self.image];
+            break;
+            
+        default:
+            break;
+    }
+}
+
+- (void)setupSliderWithFrame:(CGRect)frame
+{
+    self.slider.frame = frame;
+    [self.slider addTarget:self action:@selector(updateValue:) forControlEvents:UIControlEventValueChanged];
+}
+
+- (void)setupEffectBarWithFrame:(CGRect)frame items:(NSArray *)items
+{
+    self.effectBar.frame = frame;
+    
+    self.effectBar.items = items;
+}
+
+- (void)setupTypeBarWithFrame:(CGRect)frame items:(NSArray *)items
+{
+    self.typeBar.frame = frame;
+    self.typeBar.items = items;
 }
 
 - (void)btnCancelOrSaveClicked:(id)sender
@@ -107,76 +163,53 @@
 
 - (void)effectBar:(FWEffectBar *)bar didSelectItemAtIndex:(NSInteger)index
 {
-    GPUImageBrightnessFilter *passthroughFilter = [[GPUImageBrightnessFilter alloc]init];
-    GPUImageExposureFilter *g2 = [[GPUImageExposureFilter alloc] init];
-    GPUImageContrastFilter *g3 = [[GPUImageContrastFilter alloc] init];
-    GPUImageSaturationFilter *g4 = [[GPUImageSaturationFilter alloc] init];
-    GPUImageGammaFilter *g5 = [[GPUImageGammaFilter alloc] init];
-    GPUImageHueFilter *g6 = [[GPUImageHueFilter alloc] init];
+    selectedIndex =index;
     
-    CGSize size = self.image.size;
-    GPUImagePicture *pic ;
     switch (index) {
         case 0:
-            self.currentImage = self.image;
-            self.imageView.image = self.image;
+            self.slider.minimumValue = -1.0;
+            self.slider.maximumValue = 1.0;
+            self.slider.value = 0.0;
             break;
             
         case 1:
-            passthroughFilter.brightness = 0.05;
-            [passthroughFilter forceProcessingAtSize:size];
-            pic = [[GPUImagePicture alloc] initWithImage:self.image];
-            [pic addTarget:passthroughFilter];
-            [pic processImage];
-            [passthroughFilter useNextFrameForImageCapture];
-            self.imageView.image =[passthroughFilter imageFromCurrentFramebuffer];
+            self.slider.minimumValue = 0.0;
+            self.slider.maximumValue = 4.0;
+            self.slider.value = 1.0;
+            
             break;
             
         case 2:
-            g2.exposure = 0.2;
-            [g2 forceProcessingAtSize:size];
-            pic = [[GPUImagePicture alloc] initWithImage:self.image];
-            [pic addTarget:g2];
-            [pic processImage];
-            [g2 useNextFrameForImageCapture];
-            self.imageView.image =[g2 imageFromCurrentFramebuffer];
+            self.slider.minimumValue = 1000;
+            self.slider.maximumValue = 10000;
+            self.slider.value = 5000;
+            
             break;
+            
         case 3:
-            g3.contrast = 0.8;
-            [g3 forceProcessingAtSize:size];
-            pic = [[GPUImagePicture alloc] initWithImage:self.image];
-            [pic addTarget:g3];
-            [pic processImage];
-            [g3 useNextFrameForImageCapture];
-            self.imageView.image =[g3 imageFromCurrentFramebuffer];
+            self.slider.minimumValue = 0.0;
+            self.slider.maximumValue = 1.0;
+            self.slider.value = 0.5;
             break;
+            
         case 4:
-            g4.saturation = 0.5;
-            [g4 forceProcessingAtSize:size];
-            pic = [[GPUImagePicture alloc] initWithImage:self.image];
-            [pic addTarget:g4];
-            [pic processImage];
-            [g4 useNextFrameForImageCapture];
-            self.imageView.image =[g4 imageFromCurrentFramebuffer];
+            self.slider.minimumValue = 0.0;
+            self.slider.maximumValue = 1.0;
+            self.slider.value = 0.5;
             break;
+            
         case 5:
-            g5.gamma = 0.5;
-            [g5 forceProcessingAtSize:size];
-            pic = [[GPUImagePicture alloc] initWithImage:self.image];
-            [pic addTarget:g5];
-            [pic processImage];
-            [g5 useNextFrameForImageCapture];
-            self.imageView.image =[g5 imageFromCurrentFramebuffer];
+            self.slider.minimumValue = 0.0;
+            self.slider.maximumValue = 1.0;
+            self.slider.value = 0.5;
             break;
+            
         case 6:
-            g6.hue = 5;
-            [g6 forceProcessingAtSize:size];
-            pic = [[GPUImagePicture alloc] initWithImage:self.image];
-            [pic addTarget:g6];
-            [pic processImage];
-            [g6 useNextFrameForImageCapture];
-            self.imageView.image =[g6 imageFromCurrentFramebuffer];
+            self.slider.minimumValue = -10.0;
+            self.slider.maximumValue = 10.0;
+            self.slider.value = 0;
             break;
+            
         default:
             break;
     }

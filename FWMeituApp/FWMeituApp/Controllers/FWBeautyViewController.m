@@ -133,7 +133,6 @@
     
     NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"effectViewInfo" ofType:@"plist"];
     NSDictionary *dict  = [[NSDictionary alloc] initWithContentsOfFile:plistPath];
-    NSLog(@"dict:%@",dict);
 
     if ([text isEqualToString:@"智能优化"]) {
         NSDictionary *autoDict = [dict objectForKey:@"AutoBeauty"];
@@ -144,7 +143,35 @@
         FWFunctionViewController *vc = [[FWFunctionViewController alloc] initWithImage:image normalImageArr:normalImageArr highlightedImageArr:hightlightedImageArr textArr:textArr type:text];
         [self presentViewController:vc animated:YES completion:^{
         }];
-    }
+        NSMutableArray *arr = [[NSMutableArray alloc] initWithCapacity:0];
+        for (int i = 0; i < [textArr count]; i++) {
+            FWEffectBarItem *item = [[FWEffectBarItem alloc] initWithFrame:CGRectZero];
+            [item setFinishedSelectedImage:[UIImage imageNamed:[hightlightedImageArr objectAtIndex:i]] withFinishedUnselectedImage:[UIImage imageNamed:[normalImageArr objectAtIndex:i]] ];
+            item.title = [textArr objectAtIndex:i];
+            [arr addObject:item];
+        }
+        [vc setupEffectBarWithFrame:CGRectMake(0, HEIGHT - kCancelHeight - 10 - 20 - 30, WIDTH, 53) items:arr];
+    }else
+        if ([text isEqualToString:@"增强"]) {
+            NSDictionary *autoDict = [dict objectForKey:@"ColorValue"];
+            
+            NSArray *normalImageArr = [autoDict objectForKey:@"normalImages"];
+            NSArray *hightlightedImageArr = [autoDict objectForKey:@"HighlightedImages"];
+            NSArray *textArr = [autoDict objectForKey:@"Texts"];
+            FWFunctionViewController *vc = [[FWFunctionViewController alloc] initWithImage:image normalImageArr:normalImageArr highlightedImageArr:hightlightedImageArr textArr:textArr type:text];
+            [self presentViewController:vc animated:YES completion:^{
+            }];
+            NSMutableArray *arr = [[NSMutableArray alloc] initWithCapacity:0];
+            for (int i = 0; i < [textArr count]; i++) {
+                FWEffectBarItem *item = [[FWEffectBarItem alloc] initWithFrame:CGRectZero];
+                [item setFinishedSelectedImage:[UIImage imageNamed:[hightlightedImageArr objectAtIndex:i]] withFinishedUnselectedImage:[UIImage imageNamed:[normalImageArr objectAtIndex:i]] ];
+                item.title = [textArr objectAtIndex:i];
+                [arr addObject:item];
+            }
+            [vc setupEffectBarWithFrame:CGRectMake(0, HEIGHT - kCancelHeight - 10 - 20 - 30, WIDTH, 53) items:arr];
+            CGRect frame1 = CGRectMake(87.5, 550, 200, 20);
+            [vc setupSliderWithFrame:frame1];
+        }
 }
 
 - (void)didReceiveMemoryWarning {
