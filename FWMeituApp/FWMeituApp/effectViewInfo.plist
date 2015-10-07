@@ -2,6 +2,27 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Edit</key>
+	<dict>
+		<key>normalImages</key>
+		<array>
+			<string>icon_edit_clip_a@2x.png</string>
+			<string>icon_edit_rotate_a@2x.png</string>
+			<string>icon_edit_sharp_a@2x.png</string>
+		</array>
+		<key>HighlightedImages</key>
+		<array>
+			<string>icon_edit_clip_b@2x.png</string>
+			<string>icon_edit_rotate_b@2x.png</string>
+			<string>icon_edit_sharp_b@2x.png</string>
+		</array>
+		<key>Texts</key>
+		<array>
+			<string>裁剪</string>
+			<string>旋转</string>
+			<string>锐化</string>
+		</array>
+	</dict>
 	<key>ColorValue</key>
 	<dict>
 		<key>normalImages</key>

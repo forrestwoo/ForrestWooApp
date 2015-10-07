@@ -11,6 +11,8 @@
 #import "FWFunctionViewController.h"
 #import "ConstantsConfig.h"
 #import "FWCommonFilter.h"
+#import "UIButton+TextAndImageHorizontalDisplay.h"
+#import "FWCropView.h"
 
 @interface FWFunctionViewController ()
 {
@@ -20,6 +22,7 @@
 @property (nonatomic, assign) NSInteger itemCount;
 @property (nonatomic, strong) UIImageView *imageView;
 @property (nonatomic, strong) UIImage *currentImage;
+@property (nonatomic, strong) FWCropView *cropView;
 @end
 
 @implementation FWFunctionViewController
@@ -80,6 +83,8 @@
     [self.btnSave setImage:i2 forState:UIControlStateNormal];
     self.btnSave.frame = CGRectMake(WIDTH - kCancelHeight - 20, HEIGHT - kCancelHeight - 10, kCancelHeight, kCancelHeight);
     [self.view addSubview:self.btnSave];
+    [self.btnSave addTarget:self action:@selector(btnCancelOrSaveClicked:) forControlEvents:UIControlEventTouchUpInside];
+
     self.typeBar = [[FWEffectBar alloc] initWithFrame:CGRectZero];
     self.typeBar.delegate = self;
     [self.view addSubview:self.typeBar];
@@ -94,31 +99,45 @@
     self.slider.value = 0;
     
     [self.view addSubview:self.slider];
+    
 }
 
 - (void)updateValue:(id)sender
 {
     switch (selectedIndex) {
         case 0:
-            self.imageView.image =   [FWCommonFilter changeValueForBrightnessFilter:self.slider.value image:self.image];
+            self.currentImage = [FWCommonFilter changeValueForBrightnessFilter:self.slider.value image:self.image];
+            self.imageView.image = self.currentImage;
             break;
+            
         case 1:
-            self.imageView.image =   [FWCommonFilter changeValueForContrastFilter:self.slider.value image:self.image];
+            self.currentImage = [FWCommonFilter changeValueForContrastFilter:self.slider.value image:self.image];
+            self.imageView.image =   self.currentImage;
             break;
+            
         case 2:
-            self.imageView.image =   [FWCommonFilter changeValueForWhiteBalanceFilter:self.slider.value image:self.image];
+            self.currentImage = [FWCommonFilter changeValueForWhiteBalanceFilter:self.slider.value image:self.image];
+            self.imageView.image =  self.currentImage;
             break;
+            
         case 3:
-            self.imageView.image =   [FWCommonFilter changeValueForHightlightFilter:self.slider.value image:self.image];
+            self.currentImage = [FWCommonFilter changeValueForHightlightFilter:self.slider.value image:self.image];
+            self.imageView.image = self.currentImage;
             break;
+            
         case 4:
-            self.imageView.image =   [FWCommonFilter changeValueForHightlightFilter:self.slider.value image:self.image];
+            self.currentImage = [FWCommonFilter changeValueForHightlightFilter:self.slider.value image:self.image];
+            self.imageView.image =   self.currentImage;
             break;
+            
         case 5:
-            self.imageView.image =   [FWCommonFilter changeValueForLowlightFilter:self.slider.value image:self.image];
+            self.currentImage = [FWCommonFilter changeValueForLowlightFilter:self.slider.value image:self.image];
+            self.imageView.image =  self.currentImage;
             break;
+            
         case 6:
-            self.imageView.image =   [FWCommonFilter changeValueForExposureFilter:self.slider.value image:self.image];
+            self.currentImage = [FWCommonFilter changeValueForExposureFilter:self.slider.value image:self.image];
+            self.imageView.image =   self.currentImage;
             break;
             
         default:
@@ -145,6 +164,37 @@
     self.typeBar.items = items;
 }
 
+- (void)setupButtonsWithFrame:(CGRect)frame
+{
+    UIButton *btnReset = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btnReset setTitle:@"重置" forState:UIControlStateNormal];
+    btnReset.frame = CGRectMake(60, HEIGHT - 100, 60, 20);
+    [btnReset.titleLabel setFont:[UIFont systemFontOfSize:12.0]];
+    [self.view addSubview:btnReset];
+    
+    UIButton *btnScaleType = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btnScaleType setTitle:@"比例：自由" forState:UIControlStateNormal];
+    btnScaleType.frame = CGRectMake(140, HEIGHT - 100, 100, 20);
+    [btnScaleType.titleLabel setFont:[UIFont systemFontOfSize:12.0]];
+
+    [self.view addSubview:btnScaleType];
+    
+    UIButton *btnConfirm = [UIButton buttonWithType:UIButtonTypeCustom];
+    [btnConfirm setImage:[UIImage imageNamed:@"icon_clip_confim@2x.png"] withTitle:@"确定裁剪" forState:UIControlStateNormal];
+    btnConfirm.frame = CGRectMake(240, HEIGHT - 100, 120, 30);
+    [self.view addSubview:btnConfirm];
+}
+
+- (void)setupImageView
+{
+    self.imageView.hidden = YES;
+    self.cropView = [[FWCropView alloc] initWithFrame:self.imageView.frame];
+    [self.cropView setImage:self.image];
+//    [self.cropView setupImageView];
+    [self.view addSubview:self.cropView];
+//    [self.imageView removeFromSuperview];
+}
+
 - (void)btnCancelOrSaveClicked:(id)sender
 {
     if (sender == self.btnClose) {
@@ -152,7 +202,7 @@
             
         }];
     }else if(sender == self.btnSave){
-        
+        UIImageWriteToSavedPhotosAlbum(self.currentImage, nil, nil, nil);
     }
 }
 

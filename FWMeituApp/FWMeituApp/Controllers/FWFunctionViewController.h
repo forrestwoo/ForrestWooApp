@@ -13,10 +13,10 @@
 
 @interface FWFunctionViewController : UIViewController <FWEffectBarDelegate>
 
-@property (nonatomic, strong)  UIButton *btnClose;
-@property (nonatomic, strong)  UIButton *btnSave;
-@property (nonatomic, strong)  FWEffectBar *effectBar;
-@property (nonatomic, strong)  FWEffectBar *typeBar;
+@property (nonatomic, strong) UIButton *btnClose;
+@property (nonatomic, strong) UIButton *btnSave;
+@property (nonatomic, strong) FWEffectBar *effectBar;
+@property (nonatomic, strong) FWEffectBar *typeBar;
 @property (nonatomic, strong) UISlider *slider;
 
 @property (nonatomic, strong) NSArray *normalImageArr;
@@ -29,4 +29,7 @@
 - (void)setupTypeBarWithFrame:(CGRect)frame items:(NSArray *)items;
 - (void)setupEffectBarWithFrame:(CGRect)frame items:(NSArray *)items;
 - (void)setupSliderWithFrame:(CGRect)frame;
+- (void)setupButtonsWithFrame:(CGRect)frame;
+- (void)setupImageView;
+
 @end

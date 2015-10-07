@@ -15,5 +15,6 @@
 #import "ConstantsConfig.h"
 #import "AppDelegate.h"
 #import "GPUImage.h"
+#import "FWCommonTools.h"
 
 #endif
