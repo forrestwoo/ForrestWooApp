@@ -41,7 +41,7 @@
         imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         imageView.image = [[UIImage imageNamed:@"PEPhotoCropEditorBorder@2x.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(23.0f, 23.0f, 23.0f, 23.0f)];
         [self addSubview:imageView];
-        
+        NSLog(@"...%@", imageView.image);
         self.topLeftCornerView = [[FWResizeControl alloc] init];
         self.topLeftCornerView.delegate = self;
         [self addSubview:self.topLeftCornerView];
@@ -164,6 +164,10 @@
 
 - (void)resizeConrolViewDidResize:(FWResizeControl *)resizeConrolView
 {
+//    if (resizeConrolView.frame.origin.x < 0 || resizeConrolView.frame.origin.y < 0)
+//    {
+//        return;
+//    }
     self.frame = [self cropRectMakeWithResizeControlView:resizeConrolView];
     
     if ([self.delegate respondsToSelector:@selector(cropRectViewEditingChanged:)]) {

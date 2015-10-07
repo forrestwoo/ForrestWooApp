@@ -202,6 +202,10 @@
             
         }];
     }else if(sender == self.btnSave){
+        if ([self.FunctionType isEqualToString:@"编辑"]) {
+            UIImageWriteToSavedPhotosAlbum(self.cropView.croppedImage, nil, nil, nil);
+            return;
+        }
         UIImageWriteToSavedPhotosAlbum(self.currentImage, nil, nil, nil);
     }
 }

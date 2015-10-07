@@ -59,6 +59,8 @@
 		D70486491BAFEAE100A847BF /* item_bg_purple_b@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D70486481BAFEAE100A847BF /* item_bg_purple_b@2x.png */; };
 		D7081B771BAD4CC5002EE475 /* FWBeautyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D7081B751BAD4CC5002EE475 /* FWBeautyViewController.m */; };
 		D7081B781BAD4CC5002EE475 /* FWBeautyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D7081B761BAD4CC5002EE475 /* FWBeautyViewController.xib */; };
+		D70A6EE91BC558E1009D4469 /* PEPhotoCropEditorBorder.png in Resources */ = {isa = PBXBuildFile; fileRef = D70A6EE71BC558E1009D4469 /* PEPhotoCropEditorBorder.png */; };
+		D70A6EEA1BC558E1009D4469 /* PEPhotoCropEditorBorder@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D70A6EE81BC558E1009D4469 /* PEPhotoCropEditorBorder@2x.png */; };
 		D70EC2441BAAC8F000A1EC26 /* bg_topview_topback_a.png in Resources */ = {isa = PBXBuildFile; fileRef = D70EC2251BAAC8F000A1EC26 /* bg_topview_topback_a.png */; };
 		D70EC2451BAAC8F000A1EC26 /* btn_home_setting_a@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D70EC2261BAAC8F000A1EC26 /* btn_home_setting_a@2x.png */; };
 		D70EC2461BAAC8F000A1EC26 /* btn_home_setting_a@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D70EC2271BAAC8F000A1EC26 /* btn_home_setting_a@3x.png */; };
@@ -690,6 +692,8 @@
 		D7081B741BAD4CC5002EE475 /* FWBeautyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FWBeautyViewController.h; path = Controllers/FWBeautyViewController.h; sourceTree = "<group>"; };
 		D7081B751BAD4CC5002EE475 /* FWBeautyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FWBeautyViewController.m; path = Controllers/FWBeautyViewController.m; sourceTree = "<group>"; };
 		D7081B761BAD4CC5002EE475 /* FWBeautyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FWBeautyViewController.xib; path = Controllers/FWBeautyViewController.xib; sourceTree = "<group>"; };
+		D70A6EE71BC558E1009D4469 /* PEPhotoCropEditorBorder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PEPhotoCropEditorBorder.png; sourceTree = "<group>"; };
+		D70A6EE81BC558E1009D4469 /* PEPhotoCropEditorBorder@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PEPhotoCropEditorBorder@2x.png"; sourceTree = "<group>"; };
 		D70EC2251BAAC8F000A1EC26 /* bg_topview_topback_a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg_topview_topback_a.png; path = Images/bg_topview_topback_a.png; sourceTree = "<group>"; };
 		D70EC2261BAAC8F000A1EC26 /* btn_home_setting_a@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn_home_setting_a@2x.png"; path = "Images/btn_home_setting_a@2x.png"; sourceTree = "<group>"; };
 		D70EC2271BAAC8F000A1EC26 /* btn_home_setting_a@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "btn_home_setting_a@3x.png"; path = "Images/btn_home_setting_a@3x.png"; sourceTree = "<group>"; };
@@ -2281,6 +2285,8 @@
 		D7F8914A1BB325530067726B /* edit */ = {
 			isa = PBXGroup;
 			children = (
+				D70A6EE71BC558E1009D4469 /* PEPhotoCropEditorBorder.png */,
+				D70A6EE81BC558E1009D4469 /* PEPhotoCropEditorBorder@2x.png */,
 				D72DC17A1BC27A0C00822A83 /* icon_clip_confim@2x.png */,
 				D72DC17B1BC27A0C00822A83 /* icon_clip_confim@3x.png */,
 				D72DC17C1BC27A0C00822A83 /* icon_clipScale11_a@2x.png */,
@@ -2839,6 +2845,7 @@
 				D70EC2871BAACFF400A1EC26 /* icon_home_material@3x.png in Resources */,
 				D71E6F3D1BA88BCD00BCC79C /* AppIcon29x29@2x.png in Resources */,
 				D7F892CC1BB325540067726B /* text_font_thumbnail3@2x.png in Resources */,
+				D70A6EEA1BC558E1009D4469 /* PEPhotoCropEditorBorder@2x.png in Resources */,
 				D7F892C31BB325540067726B /* icon_btn_textstyle_b@3x.png in Resources */,
 				D70EC25A1BAAC8F000A1EC26 /* icon_app_miniApp@3x.png in Resources */,
 				D71751C31BA9480A004E9291 /* bg_default_view_mt-736.jpg in Resources */,
@@ -2908,6 +2915,7 @@
 				D7F892761BB325540067726B /* icon_function_text_b@3x.png in Resources */,
 				D7F892901BB325540067726B /* magic_brush_13@2x.png in Resources */,
 				D7F8926B1BB325540067726B /* icon_function_mosaic_a@2x.png in Resources */,
+				D70A6EE91BC558E1009D4469 /* PEPhotoCropEditorBorder.png in Resources */,
 				D7F8926D1BB325540067726B /* icon_function_mosaic_b@2x.png in Resources */,
 				D7F892311BB325540067726B /* border_simple_17@2x.jpg in Resources */,
 				D72DC19D1BC27A0D00822A83 /* icon_clipScale11_b@3x.png in Resources */,

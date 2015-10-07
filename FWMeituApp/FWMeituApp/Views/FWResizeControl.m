@@ -41,9 +41,13 @@
         }
     } else if (gestureRecognizer.state == UIGestureRecognizerStateChanged) {
         CGPoint translation = [gestureRecognizer translationInView:self.superview];
+        
         self.translation = CGPointMake(roundf(self.startPoint.x + translation.x),
                                        roundf(self.startPoint.y + translation.y));
-        
+//        if (self.translation.x < 0 || self.translation.y < 0) {
+//            return;
+//        }
+        NSLog(@"x.%@,superView:%@,sx=%f,sy=%f",NSStringFromCGPoint(self.translation),NSStringFromClass([self.superview class]),self.startPoint.x,self.startPoint.y);
         if ([self.delegate respondsToSelector:@selector(resizeConrolViewDidResize:)]) {
             [self.delegate resizeConrolViewDidResize:self];
         }

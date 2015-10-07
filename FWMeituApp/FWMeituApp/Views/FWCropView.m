@@ -36,11 +36,6 @@
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor clearColor];
-        
-//        self.cropRectView = [[FWCropRectView alloc] initWithFrame:[self bounds]];
-//        self.cropRectView.delegate = self;
-//        self.cropRectView.showsGridMinor = YES;
-//        [self addSubview:self.cropRectView];
     }
     
     return self;
@@ -48,123 +43,53 @@
 
 #pragma mark -
 
-//- (void)layoutSubviews
-//{
-//    [super layoutSubviews];
-//
-//    if (!self.image) {
-//        return;
-//    }
-//
-//    UIInterfaceOrientation interfaceOrientation = [[UIApplication sharedApplication] statusBarOrientation];
-//    if (UIInterfaceOrientationIsPortrait(interfaceOrientation)) {
-//        self.editingRect = CGRectInset(self.bounds, MarginLeft, MarginTop);
-//    } else {
-//        self.editingRect = CGRectInset(self.bounds, MarginLeft, MarginLeft);
-//    }
-//
-//    if (!self.imageView) {
-//        if (UIInterfaceOrientationIsPortrait(interfaceOrientation)) {
-//            self.insetRect = CGRectInset(self.bounds, MarginLeft, MarginTop);
-//        } else {
-//            self.insetRect = CGRectInset(self.bounds, MarginLeft, MarginLeft);
-//        }
-//        NSLog(@"lay rect is %@", NSStringFromCGRect(self.insetRect));
-//
-//        [self setupImageView];
-//    }
-//
-//    if (!self.isResizing) {
-//        [self layoutCropRectViewWithCropRect:self.scrollView.frame];
-//
-//        if (self.interfaceOrientation != interfaceOrientation) {
-//            [self zoomToCropRect:self.scrollView.frame];
-//        }
-//    }
-//
-//    self.interfaceOrientation = interfaceOrientation;
-//}
+- (void)layoutSubviews
+{
+    [super layoutSubviews];
+    
+    if (!self.image) {
+        return;
+    }
+    
+    self.editingRect = CGRectInset(self.bounds, 20, 37);
+    
+    if (!self.imageView) {
+        [self setupImageView];
+    }
+    
+    if (!self.isResizing) {
+        [self layoutCropRectViewWithCropRect:self.frame];
+        
+    }
+}
 
 - (void)layoutCropRectViewWithCropRect:(CGRect)cropRect
 {
     self.cropRectView.frame = cropRect;
-    [self layoutOverlayViewsWithCropRect:cropRect];
-}
-
-- (void)layoutOverlayViewsWithCropRect:(CGRect)cropRect
-{
-    self.topOverlayView.frame = CGRectMake(0.0f,
-                                           0.0f,
-                                           CGRectGetWidth(self.bounds),
-                                           CGRectGetMinY(cropRect));
-    self.leftOverlayView.frame = CGRectMake(0.0f,
-                                            CGRectGetMinY(cropRect),
-                                            CGRectGetMinX(cropRect),
-                                            CGRectGetHeight(cropRect));
-    self.rightOverlayView.frame = CGRectMake(CGRectGetMaxX(cropRect),
-                                             CGRectGetMinY(cropRect),
-                                             CGRectGetWidth(self.bounds) - CGRectGetMaxX(cropRect),
-                                             CGRectGetHeight(cropRect));
-    self.bottomOverlayView.frame = CGRectMake(0.0f,
-                                              CGRectGetMaxY(cropRect),
-                                              CGRectGetWidth(self.bounds),
-                                              CGRectGetHeight(self.bounds) - CGRectGetMaxY(cropRect));
 }
 
 - (void)setupImageView
 {
-    CGRect cropRect = AVMakeRectWithAspectRatioInsideRect(self.image.size, self.insetRect);
-//    NSLog(@"cropRect rect is %@", NSStringFromCGRect(cropRect));
-//    NSLog(@"image size is %@,insetRect:%@", NSStringFromCGSize(self.image.size), NSStringFromCGRect(self.insetRect));
-    
     self.imageView = [[UIImageView alloc] initWithFrame:[self bounds]];
     self.imageView.backgroundColor = [UIColor clearColor];
     self.imageView.contentMode = UIViewContentModeScaleAspectFit;
     self.imageView.image = self.image;
-    NSLog(@"image size is %@,insetRect:%@", NSStringFromCGSize(self.image.size), NSStringFromCGRect(self.imageView.frame));
-
+    
     [self addSubview:self.imageView];
+    
+    self.cropRectView = [[FWCropRectView alloc] initWithFrame:[self bounds]];
+    
+    self.cropRectView.delegate = self;
+    self.cropRectView.showsGridMajor = YES;
+    [self addSubview:self.cropRectView];
 }
 
 #pragma mark -
-
-//- (void)setAspectRatio:(CGFloat)aspectRatio
-//{
-//    CGRect cropRect = self.scrollView.frame;
-//    CGFloat width = CGRectGetWidth(cropRect);
-//    CGFloat height = CGRectGetHeight(cropRect);
-//    if (width < height) {
-//        width = height * aspectRatio;
-//    } else {
-//        height = width * aspectRatio;
-//    }
-//    cropRect.size = CGSizeMake(width, height);
-//    [self zoomToCropRect:cropRect];
-//}
-//
-//- (CGFloat)aspectRatio
-//{
-//    CGRect cropRect = self.scrollView.frame;
-//    CGFloat width = CGRectGetWidth(cropRect);
-//    CGFloat height = CGRectGetHeight(cropRect);
-//    return width / height;
-//}
-//
-//- (void)setCropRect:(CGRect)cropRect
-//{
-//    [self zoomToCropRect:cropRect];
-//}
-//
-//- (CGRect)cropRect
-//{
-//    return self.scrollView.frame;
-//}
-//
-//- (UIImage *)croppedImage
-//{
-//    CGRect cropRect = [self convertRect:self.scrollView.frame toView:self.zoomingView];
+- (UIImage *)croppedImage
+{
+//    CGRect cropRect = self.cropRectView.bounds;
 //    CGSize size = self.image.size;
-//
+//    
 //    CGFloat ratio = 1.0f;
 //    UIInterfaceOrientation orientation = [[UIApplication sharedApplication] statusBarOrientation];
 //    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad || UIInterfaceOrientationIsPortrait(orientation)) {
@@ -172,20 +97,20 @@
 //    } else {
 //        ratio = CGRectGetHeight(AVMakeRectWithAspectRatioInsideRect(self.image.size, self.insetRect)) / size.height;
 //    }
-//
+//    
 //    CGRect zoomedCropRect = CGRectMake(cropRect.origin.x / ratio,
 //                                       cropRect.origin.y / ratio,
 //                                       cropRect.size.width / ratio,
 //                                       cropRect.size.height / ratio);
-//
+//    
 //    UIImage *rotatedImage = [self rotatedImageWithImage:self.image transform:self.imageView.transform];
-//
-//    CGImageRef croppedImage = CGImageCreateWithImageInRect(rotatedImage.CGImage, zoomedCropRect);
-//    UIImage *image = [UIImage imageWithCGImage:croppedImage scale:1.0f orientation:rotatedImage.imageOrientation];
-//    CGImageRelease(croppedImage);
-//
-//    return image;
-//}
+    
+    CGImageRef croppedImage = CGImageCreateWithImageInRect(self.image.CGImage, self.cropRectView.bounds);
+    UIImage *image = [UIImage imageWithCGImage:croppedImage];
+    CGImageRelease(croppedImage);
+    
+    return image;
+}
 
 - (UIImage *)rotatedImageWithImage:(UIImage *)image transform:(CGAffineTransform)transform
 {
@@ -206,101 +131,56 @@
     return rotatedImage;
 }
 
-//- (CGRect)cappedCropRectInImageRectWithCropRectView:(FWCropRectView *)cropRectView
-//{
-//    CGRect cropRect = cropRectView.frame;
-//
-//    CGRect rect = [self convertRect:cropRect toView:self.scrollView];
-//    if (CGRectGetMinX(rect) < CGRectGetMinX(self.zoomingView.frame)) {
-//        cropRect.origin.x = CGRectGetMinX([self.scrollView convertRect:self.zoomingView.frame toView:self]);
-//        cropRect.size.width = CGRectGetMaxX(rect);
-//    }
-//    if (CGRectGetMinY(rect) < CGRectGetMinY(self.zoomingView.frame)) {
-//        cropRect.origin.y = CGRectGetMinY([self.scrollView convertRect:self.zoomingView.frame toView:self]);
-//        cropRect.size.height = CGRectGetMaxY(rect);
-//    }
-//    if (CGRectGetMaxX(rect) > CGRectGetMaxX(self.zoomingView.frame)) {
-//        cropRect.size.width = CGRectGetMaxX([self.scrollView convertRect:self.zoomingView.frame toView:self]) - CGRectGetMinX(cropRect);
-//    }
-//    if (CGRectGetMaxY(rect) > CGRectGetMaxY(self.zoomingView.frame)) {
-//        cropRect.size.height = CGRectGetMaxY([self.scrollView convertRect:self.zoomingView.frame toView:self]) - CGRectGetMinY(cropRect);
-//    }
-//
-//    return cropRect;
-//}
-
-//- (void)automaticZoomIfEdgeTouched:(CGRect)cropRect
-//{
-//    if (CGRectGetMinX(cropRect) < CGRectGetMinX(self.editingRect) - 5.0f ||
-//        CGRectGetMaxX(cropRect) > CGRectGetMaxX(self.editingRect) + 5.0f ||
-//        CGRectGetMinY(cropRect) < CGRectGetMinY(self.editingRect) - 5.0f ||
-//        CGRectGetMaxY(cropRect) > CGRectGetMaxY(self.editingRect) + 5.0f) {
-//        [UIView animateWithDuration:1.0
-//                              delay:0.0
-//                            options:UIViewAnimationOptionBeginFromCurrentState
-//                         animations:^{
-//                             [self zoomToCropRect:self.cropRectView.frame];
-//                         } completion:^(BOOL finished) {
-//
-//                         }];
-//    }
-//}
+- (CGRect)cappedCropRectInImageRectWithCropRectView:(FWCropRectView *)cropRectView
+{
+    CGRect cropRect = cropRectView.frame;
+    
+    CGRect rect = [self convertRect:cropRect toView:self.superview];
+    if (CGRectGetMinX(rect) < CGRectGetMinX(self.frame)) {
+        cropRect.origin.x = CGRectGetMinX([self.superview convertRect:self.frame toView:self]);
+        cropRect.size.width = CGRectGetMaxX(rect);
+    }
+    if (CGRectGetMinY(rect) < CGRectGetMinY(self.frame)) {
+        cropRect.origin.y = CGRectGetMinY([self.superview convertRect:self.frame toView:self]);
+        cropRect.size.height = CGRectGetMaxY(rect);
+    }
+    if (CGRectGetMaxX(rect) > CGRectGetMaxX(self.frame)) {
+        cropRect.size.width = CGRectGetMaxX([self.superview convertRect:self.frame toView:self]) - CGRectGetMinX(cropRect);
+    }
+    if (CGRectGetMaxY(rect) > CGRectGetMaxY(self.frame)) {
+        cropRect.size.height = CGRectGetMaxY([self.superview convertRect:self.frame toView:self]) - CGRectGetMinY(cropRect);
+    }
+    NSLog(@"cropRectView,rect %@", NSStringFromCGRect(cropRectView.frame));
+    NSLog(@"rect minx=%f,miny=%f,maxx=%f,maxy=%f%@",CGRectGetMinX(rect),CGRectGetMinY(rect), CGRectGetMaxX(rect) ,CGRectGetMaxY(rect) ,NSStringFromCGRect(self.frame));
+    NSLog(@"self minx=%f,miny=%f,maxx=%f,maxy=%f%@",CGRectGetMinX(self.frame),CGRectGetMinY(self.frame), CGRectGetMaxX(self.frame) ,CGRectGetMaxY(self.frame) ,NSStringFromCGRect(self.frame));
+    NSLog(@"----------------------------------!");
+    //self,rect {{57.5, 64}, {260, 460}}
+    //superview,rect {{0, 0}, {375, 667}}
+    //
+    return cropRect;
+}
 
 #pragma mark -
-//
-//- (void)cropRectViewDidBeginEditing:(FWCropRectView *)cropRectView
-//{
-//    self.resizing = YES;
-//}
-//
-//- (void)cropRectViewEditingChanged:(FWCropRectView *)cropRectView
-//{
-//    CGRect cropRect = [self cappedCropRectInImageRectWithCropRectView:cropRectView];
-//
-//    [self layoutCropRectViewWithCropRect:cropRect];
-//
-//    [self automaticZoomIfEdgeTouched:cropRect];
-//}
-//
-//- (void)cropRectViewDidEndEditing:(FWCropRectView *)cropRectView
-//{
-//    self.resizing = NO;
-//    [self zoomToCropRect:self.cropRectView.frame];
-//}
-//
-//- (void)zoomToCropRect:(CGRect)toRect
-//{
-//    if (CGRectEqualToRect(self.scrollView.frame, toRect)) {
-//        return;
-//    }
-//
-//    CGFloat width = CGRectGetWidth(toRect);
-//    CGFloat height = CGRectGetHeight(toRect);
-//
-//    CGFloat scale = MIN(CGRectGetWidth(self.editingRect) / width, CGRectGetHeight(self.editingRect) / height);
-//
-//    CGFloat scaledWidth = width * scale;
-//    CGFloat scaledHeight = height * scale;
-//    CGRect cropRect = CGRectMake((CGRectGetWidth(self.bounds) - scaledWidth) / 2,
-//                                 (CGRectGetHeight(self.bounds) - scaledHeight) / 2,
-//                                 scaledWidth,
-//                                 scaledHeight);
-//
-//    CGRect zoomRect = [self convertRect:toRect toView:self.zoomingView];
-//    zoomRect.size.width = CGRectGetWidth(cropRect) / (self.scrollView.zoomScale * scale);
-//    zoomRect.size.height = CGRectGetHeight(cropRect) / (self.scrollView.zoomScale * scale);
-//
-//    [UIView animateWithDuration:0.25
-//                          delay:0.0
-//                        options:UIViewAnimationOptionBeginFromCurrentState
-//                     animations:^{
-//                         self.scrollView.bounds = cropRect;
-//                         [self.scrollView zoomToRect:zoomRect animated:NO];
-//
-//                         [self layoutCropRectViewWithCropRect:cropRect];
-//                     } completion:^(BOOL finished) {
-//
-//                     }];
-//}
+
+- (void)cropRectViewDidBeginEditing:(FWCropRectView *)cropRectView
+{
+    self.resizing = YES;
+}
+
+- (void)cropRectViewEditingChanged:(FWCropRectView *)cropRectView
+{
+    if (cropRectView.frame.origin.x < 0 || cropRectView.frame.origin.y < 0) {
+        return;
+    }
+    CGRect cropRect = [self cappedCropRectInImageRectWithCropRectView:cropRectView];
+    
+    [self layoutCropRectViewWithCropRect:cropRect];
+}
+
+- (void)cropRectViewDidEndEditing:(FWCropRectView *)cropRectView
+{
+    self.resizing = NO;
+    //    [self zoomToCropRect:self.cropRectView.frame];
+}
 
 @end
