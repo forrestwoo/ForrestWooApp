@@ -33,4 +33,10 @@
 //色温
 + (UIImage *)changeValueForWhiteBalanceFilter:(float)value image:(UIImage *)image;
 
++ (UIImage *)changeValueForLookupFilter:(float)value image:(UIImage *)image;
+
++ (UIImage *)changeValueForMissEtikateFilter:(float)value image:(UIImage *)image;
+
++ (UIImage *)changeValueForSoftEleganceFilter:(float)value image:(UIImage *)image;
+
 @end

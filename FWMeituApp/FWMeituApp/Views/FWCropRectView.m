@@ -10,6 +10,11 @@
 #import "FWResizeControl.h"
 
 @interface FWCropRectView ()
+{
+    CGFloat maxWidth;
+    CGFloat maxHeight;
+    CGPoint beganPoint;
+}
 
 @property (nonatomic) FWResizeControl *topLeftCornerView;
 @property (nonatomic) FWResizeControl *topRightCornerView;
@@ -33,6 +38,8 @@
     if (self) {
         self.backgroundColor = [UIColor clearColor];
         self.contentMode = UIViewContentModeRedraw;
+        maxWidth = frame.size.width;
+        maxHeight = frame.size.height;
         
         self.showsGridMajor = YES;
         self.showsGridMinor = NO;
@@ -41,7 +48,6 @@
         imageView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         imageView.image = [[UIImage imageNamed:@"PEPhotoCropEditorBorder@2x.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(23.0f, 23.0f, 23.0f, 23.0f)];
         [self addSubview:imageView];
-        NSLog(@"...%@", imageView.image);
         self.topLeftCornerView = [[FWResizeControl alloc] init];
         self.topLeftCornerView.delegate = self;
         [self addSubview:self.topLeftCornerView];
@@ -91,7 +97,22 @@
         }
     }
     
-    return nil;
+    return self;
+}
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+    beganPoint = [touch locationInView:self];
+}
+
+- (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *touch = [touches anyObject];
+    CGPoint newPoint = [touch locationInView:self];
+    float offsetX = newPoint.x - beganPoint.x;
+    float offsetY = newPoint.y - beganPoint.y;
+    self.center = CGPointMake(self.center.x + offsetX, self.center.y + offsetY);
 }
 
 - (void)drawRect:(CGRect)rect
@@ -241,7 +262,7 @@
         rect.origin.y = CGRectGetMaxY(self.frame) - minHeight;
         rect.size.height = minHeight;
     }
-    
+//    NSLog(@"rect is  crop rect:%@", NSStringFromCGRect(rect));
     return rect;
 }
 

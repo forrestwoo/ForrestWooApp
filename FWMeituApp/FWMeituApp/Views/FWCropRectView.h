@@ -13,6 +13,7 @@
 @property (nonatomic) id delegate;
 @property (nonatomic) BOOL showsGridMajor;
 @property (nonatomic) BOOL showsGridMinor;
+@property (nonatomic) BOOL dragEnable;
 
 @end
 

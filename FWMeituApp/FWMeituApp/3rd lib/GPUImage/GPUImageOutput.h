@@ -44,7 +44,8 @@ void reportAvailableMemoryForGPUImage(NSString *tag);
     NSMutableArray *targets, *targetTextureIndices;
     
     CGSize inputTextureSize, cachedMaximumOutputSize, forcedMaximumSize;
-    
+    GLuint outputTexture;
+
     BOOL overrideInputSize;
     
     BOOL allTargetsWantMonochromeData;

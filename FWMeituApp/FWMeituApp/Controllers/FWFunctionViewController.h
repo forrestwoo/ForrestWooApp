@@ -31,5 +31,6 @@
 - (void)setupSliderWithFrame:(CGRect)frame;
 - (void)setupButtonsWithFrame:(CGRect)frame;
 - (void)setupImageView;
+- (void)setupSEView;
 
 @end

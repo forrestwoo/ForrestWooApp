@@ -7,6 +7,7 @@
 //
 
 #import "FWCommonFilter.h"
+#import "FWCommonTools.h"
 
 @implementation FWCommonFilter
 
@@ -38,8 +39,9 @@
 
 + (UIImage *)changeValueForHightlightFilter:(float)value image:(UIImage *)image;
 {
-    GPUImageHighPassFilter *filter = [[GPUImageHighPassFilter alloc] init];
-    filter.filterStrength = value;
+    GPUImageHighlightShadowFilter *filter = [[GPUImageHighlightShadowFilter alloc] init];
+    filter.highlights = value;
+    filter.shadows = 0.0;
     [filter forceProcessingAtSize:image.size];
     GPUImagePicture *pic = [[GPUImagePicture alloc] initWithImage:image];
     [pic addTarget:filter];
@@ -50,9 +52,9 @@
 
 + (UIImage *)changeValueForLowlightFilter:(float)value image:(UIImage *)image
 {
-    
-    GPUImageLowPassFilter *filter = [[GPUImageLowPassFilter alloc] init];
-    filter.filterStrength = value;
+    GPUImageHighlightShadowFilter *filter = [[GPUImageHighlightShadowFilter alloc] init];
+    filter.highlights = 1.0;
+    filter.shadows = value;
     [filter forceProcessingAtSize:image.size];
     GPUImagePicture *pic = [[GPUImagePicture alloc] initWithImage:image];
     [pic addTarget:filter];
@@ -92,6 +94,42 @@
     GPUImageWhiteBalanceFilter *filter = [[GPUImageWhiteBalanceFilter alloc] init];
     filter.temperature = value;
     filter.tint = 0.0;
+    [filter forceProcessingAtSize:image.size];
+    GPUImagePicture *pic = [[GPUImagePicture alloc] initWithImage:image];
+    [pic addTarget:filter];
+    
+    [pic processImage];
+    [filter useNextFrameForImageCapture];
+    return [filter imageFromCurrentFramebuffer];
+}
+
++ (UIImage *)changeValueForLookupFilter:(float)value image:(UIImage *)image;
+{
+    GPUImageAmatorkaFilter *filter = [[GPUImageAmatorkaFilter alloc] init];
+    [filter forceProcessingAtSize:image.size];
+    GPUImagePicture *pic = [[GPUImagePicture alloc] initWithImage:image];
+    [pic addTarget:filter];
+    
+    [pic processImage];
+    [filter useNextFrameForImageCapture];
+    return [filter imageFromCurrentFramebuffer];
+}
+
++ (UIImage *)changeValueForMissEtikateFilter:(float)value image:(UIImage *)image
+{
+    GPUImageMissEtikateFilter *filter = [[GPUImageMissEtikateFilter alloc] init];
+    [filter forceProcessingAtSize:image.size];
+    GPUImagePicture *pic = [[GPUImagePicture alloc] initWithImage:image];
+    [pic addTarget:filter];
+    
+    [pic processImage];
+    [filter useNextFrameForImageCapture];
+    return [filter imageFromCurrentFramebuffer];
+}
+
++ (UIImage *)changeValueForSoftEleganceFilter:(float)value image:(UIImage *)image
+{
+    GPUImageSoftEleganceFilter *filter = [[GPUImageSoftEleganceFilter alloc] init];
     [filter forceProcessingAtSize:image.size];
     GPUImagePicture *pic = [[GPUImagePicture alloc] initWithImage:image];
     [pic addTarget:filter];

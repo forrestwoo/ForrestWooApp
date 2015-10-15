@@ -53,7 +53,8 @@ typedef struct GPUMatrix3x3 GPUMatrix3x3;
     GLint filterPositionAttribute, filterTextureCoordinateAttribute;
     GLint filterInputTextureUniform;
     GLfloat backgroundColorRed, backgroundColorGreen, backgroundColorBlue, backgroundColorAlpha;
-    
+    GLuint filterSourceTexture, filterSourceTexture2, filterOutputTexture;
+
     BOOL isEndProcessing;
 
     CGSize currentFilterSize;
@@ -96,11 +97,15 @@ typedef struct GPUMatrix3x3 GPUMatrix3x3;
 - (void)setupFilterForSize:(CGSize)filterFrameSize;
 - (CGSize)rotatedSize:(CGSize)sizeToRotate forIndex:(NSInteger)textureIndex;
 - (CGPoint)rotatedPoint:(CGPoint)pointToRotate forRotation:(GPUImageRotationMode)rotation;
+- (UIImage *)imageFromCurrentlyProcessedOutput;
 
 /// @name Managing the display FBOs
 /** Size of the frame buffer object
  */
 - (CGSize)sizeOfFBO;
+- (void)createFilterFBO;
+- (void)destroyFilterFBO;
+- (void)setFilterFBO;
 
 /// @name Rendering
 + (const GLfloat *)textureCoordinatesForRotation:(GPUImageRotationMode)rotationMode;

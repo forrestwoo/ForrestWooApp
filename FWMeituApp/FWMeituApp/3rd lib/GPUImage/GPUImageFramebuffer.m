@@ -20,7 +20,6 @@
 
 @end
 
-void dataProviderReleaseCallback (void *info, const void *data, size_t size);
 void dataProviderUnlockCallback (void *info, const void *data, size_t size);
 
 @implementation GPUImageFramebuffer

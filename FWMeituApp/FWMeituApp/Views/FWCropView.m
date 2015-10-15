@@ -58,7 +58,7 @@
     }
     
     if (!self.isResizing) {
-        [self layoutCropRectViewWithCropRect:self.frame];
+//        [self layoutCropRectViewWithCropRect:self.frame];
         
     }
 }
@@ -112,24 +112,24 @@
     return image;
 }
 
-- (UIImage *)rotatedImageWithImage:(UIImage *)image transform:(CGAffineTransform)transform
-{
-    CGSize size = image.size;
-    
-    UIGraphicsBeginImageContext(size);
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    
-    CGContextTranslateCTM(context, size.width / 2, size.height / 2);
-    CGContextConcatCTM(context, transform);
-    CGContextTranslateCTM(context, size.width / -2, size.height / -2);
-    [image drawInRect:CGRectMake(0.0f, 0.0f, size.width, size.height)];
-    
-    UIImage *rotatedImage = UIGraphicsGetImageFromCurrentImageContext();
-    
-    UIGraphicsEndImageContext();
-    
-    return rotatedImage;
-}
+//- (UIImage *)rotatedImageWithImage:(UIImage *)image transform:(CGAffineTransform)transform
+//{
+//    CGSize size = image.size;
+//    
+//    UIGraphicsBeginImageContext(size);
+//    CGContextRef context = UIGraphicsGetCurrentContext();
+//    
+//    CGContextTranslateCTM(context, size.width / 2, size.height / 2);
+//    CGContextConcatCTM(context, transform);
+//    CGContextTranslateCTM(context, size.width / -2, size.height / -2);
+//    [image drawInRect:CGRectMake(0.0f, 0.0f, size.width, size.height)];
+//    
+//    UIImage *rotatedImage = UIGraphicsGetImageFromCurrentImageContext();
+//    
+//    UIGraphicsEndImageContext();
+//    
+//    return rotatedImage;
+//}
 
 - (CGRect)cappedCropRectInImageRectWithCropRectView:(FWCropRectView *)cropRectView
 {
@@ -150,10 +150,10 @@
     if (CGRectGetMaxY(rect) > CGRectGetMaxY(self.frame)) {
         cropRect.size.height = CGRectGetMaxY([self.superview convertRect:self.frame toView:self]) - CGRectGetMinY(cropRect);
     }
-    NSLog(@"cropRectView,rect %@", NSStringFromCGRect(cropRectView.frame));
-    NSLog(@"rect minx=%f,miny=%f,maxx=%f,maxy=%f%@",CGRectGetMinX(rect),CGRectGetMinY(rect), CGRectGetMaxX(rect) ,CGRectGetMaxY(rect) ,NSStringFromCGRect(self.frame));
-    NSLog(@"self minx=%f,miny=%f,maxx=%f,maxy=%f%@",CGRectGetMinX(self.frame),CGRectGetMinY(self.frame), CGRectGetMaxX(self.frame) ,CGRectGetMaxY(self.frame) ,NSStringFromCGRect(self.frame));
-    NSLog(@"----------------------------------!");
+//    NSLog(@"cropRectView,rect %@", NSStringFromCGRect(cropRectView.frame));
+//    NSLog(@"rect minx=%f,miny=%f,maxx=%f,maxy=%f%@",CGRectGetMinX(rect),CGRectGetMinY(rect), CGRectGetMaxX(rect) ,CGRectGetMaxY(rect) ,NSStringFromCGRect(self.frame));
+//    NSLog(@"self minx=%f,miny=%f,maxx=%f,maxy=%f%@",CGRectGetMinX(self.frame),CGRectGetMinY(self.frame), CGRectGetMaxX(self.frame) ,CGRectGetMaxY(self.frame) ,NSStringFromCGRect(self.frame));
+//    NSLog(@"----------------------------------!");
     //self,rect {{57.5, 64}, {260, 460}}
     //superview,rect {{0, 0}, {375, 667}}
     //

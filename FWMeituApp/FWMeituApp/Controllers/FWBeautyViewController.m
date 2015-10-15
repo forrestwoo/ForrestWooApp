@@ -46,7 +46,7 @@
     modeView.highlightedTextColor = highlightedTextColor;
     modeView.topPading = 3;
     [modeView addTarget:self action:@selector(btnClicked:) forControlEvents:UIControlEventTouchUpInside];
-
+    
     UIImageView *tagImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"mc_line@2x.png"]];
     tagImage.frame = CGRectMake(60, 600, 1, 57);
     [self.view addSubview:modeView];
@@ -131,8 +131,8 @@
         image = [UIImage imageCompressForWidth:self.image targetHeight:460];
     }
     
-
-
+    
+    
     if ([text isEqualToString:@"智能优化"]) {
         NSDictionary *autoDict = [[FWCommonTools getPlistDictionaryForButton] objectForKey:@"AutoBeauty"];
         
@@ -191,14 +191,28 @@
                 [vc setupButtonsWithFrame:CGRectZero];
                 [vc setupImageView];
                 
-//                CGRect frame1 = CGRectMake(87.5, 550, 200, 20);
-//                [vc setupSliderWithFrame:frame1];
-            }
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+                //                CGRect frame1 = CGRectMake(87.5, 550, 200, 20);
+                //                [vc setupSliderWithFrame:frame1];
+            }else
+                if ([text isEqualToString:@"特效"]) {
+                    NSDictionary *autoDict = [[FWCommonTools getPlistDictionaryForButton] objectForKey:@"speciallyeffect"];
+                    
+                    NSArray *textArr = [autoDict objectForKey:@"Texts"];
+                    FWFunctionViewController *vc = [[FWFunctionViewController alloc] initWithImage:image normalImageArr:nil highlightedImageArr:nil textArr:textArr type:text];
+                    [self presentViewController:vc animated:YES completion:^{
+                    }];
+                    NSMutableArray *arr = [[NSMutableArray alloc] initWithCapacity:0];
+                    for (int i = 0; i < [textArr count]; i++) {
+                        FWEffectBarItem *item = [[FWEffectBarItem alloc] initWithFrame:CGRectZero];
+                        item.title = [textArr objectAtIndex:i];
+                        [arr addObject:item];
+                    }
+                    [vc setupEffectBarWithFrame:CGRectMake(100, HEIGHT - 50, 160, 53) items:arr];
+                    [vc setupSEView];
+                    
+                    //                CGRect frame1 = CGRectMake(87.5, 550, 200, 20);
+                    //                [vc setupSliderWithFrame:frame1];
+                }
 }
 
 @end
